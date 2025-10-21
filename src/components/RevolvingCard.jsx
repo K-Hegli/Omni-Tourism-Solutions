@@ -30,7 +30,7 @@ export default function RevolvingCard({ module }) {
       <div className={styles.inner}>
         <div className={styles.facet + ' ' + styles.cover}>
           <div className={styles.symbolWrap} aria-hidden="true">
-            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.symbol}>
+            <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.symbol}>
               <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="2" />
               <path d="M20 14c0-2.2 1.8-4 4-4s4 1.8 4 4c0 2.2-3.1 6.2-4 7.5-.9-1.3-4-5.3-4-7.5z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinejoin="round" />
               <circle cx="24" cy="14" r="1.5" fill="currentColor" />

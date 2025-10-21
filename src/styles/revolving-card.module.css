@@ -1,16 +1,22 @@
 /* Card container adjustments */
 .card {
   width: 320px;
-  height: 380px;
+  height: 420px;
   perspective: 1000px;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(10,20,40,0.06);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 8px 24px rgba(10,20,40,0.08), 0 2px 8px rgba(10,20,40,0.04);
   border: 1px solid rgba(15,25,40,0.06);
   overflow: visible;
   display: flex;
   flex-direction: column;
-  margin: 12px;
+  margin: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(10,20,40,0.12), 0 4px 12px rgba(10,20,40,0.06);
 }
 
 .card:focus-visible {
@@ -32,53 +38,58 @@
 .facet {
   position: absolute;
   inset: 0;
-  padding: 18px 18px 62px 18px;
+  padding: 20px 20px 70px 20px;
   box-sizing: border-box;
-  background: #fff;
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   border-radius: 12px;
+  border: 1px solid rgba(15,25,40,0.08);
 }
 
 /* Cover: symbol + text layout */
-.cover { 
-  display: flex; 
-  align-items: flex-start; 
-  gap: 12px; 
+.cover {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 8px;
 }
 
-.symbolWrap { 
-  width: 48px; 
-  height: 48px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+.symbolWrap {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #0B3B6F;
   flex-shrink: 0;
-}
-
-.symbol {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(11,67,111,0.12);
+  box-shadow: 0 2px 6px rgba(11,67,111,0.08);
+}.symbol {
   color: inherit;
 }
 
-.coverText { 
-  flex: 1; 
+.coverText {
+  flex: 1;
+  padding-top: 4px;
 }
 
-.title { 
-  margin: 0; 
-  font-size: 1.05rem; 
-  font-weight: 600; 
-  color: #08263a; 
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #08263a;
   line-height: 1.3;
 }
 
-.oneLiner { 
-  margin: 4px 0 0; 
-  font-size: 0.92rem; 
-  color: #394a55; 
+.oneLiner {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: #394a55;
   line-height: 1.4;
 }
 
@@ -89,23 +100,41 @@
   align-items: flex-start; 
 }
 
-.outcomes ul { 
-  margin: 8px 0 0; 
-  padding-left: 18px; 
-  color: #263845; 
+.outcomes ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #263845;
   list-style: disc;
 }
 
-.outcomes li { 
-  margin-bottom: 6px; 
+.outcomes li {
+  margin-bottom: 8px;
   line-height: 1.4;
+  font-size: 0.85rem;
+}
+
+.outcomes li strong {
+  color: #0B3B6F;
+  font-weight: 600;
 }
 
 .outcomes h4, .roi h4, .pilot h4 {
-  margin: 0 0 12px 0;
-  font-size: 0.95rem;
+  margin: 0 0 16px 0;
+  font-size: 1rem;
   font-weight: 600;
   color: #0e2b45;
+  position: relative;
+}
+
+.outcomes h4::after, .roi h4::after, .pilot h4::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, #0B3B6F, #0B3B6F);
+  border-radius: 1px;
 }
 
 /* ROI specific */
@@ -116,33 +145,38 @@
   font-weight: 600;
 }
 
-.roiGrid { 
-  display: flex; 
-  gap: 12px; 
-  width: 100%; 
+.roiGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
 }
 
-.roiItem { 
-  flex: 1; 
-  text-align: center; 
-  padding: 12px; 
-  border-radius: 8px; 
-  background: #f7fbff; 
-  border: 1px solid rgba(11,67,111,0.06); 
+.roiItem {
+  text-align: center;
+  padding: 10px 8px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f7fbff 0%, #f0f7ff 100%);
+  border: 1px solid rgba(11,67,111,0.08);
+  box-shadow: 0 2px 4px rgba(11,67,111,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.roiBig { 
-  font-size: 1.05rem; 
-  font-weight: 700; 
-  color: #0B3B6F; 
+.roiItem:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(11,67,111,0.08);
+}.roiBig {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0B3B6F;
   display: block;
   line-height: 1.2;
+  margin-bottom: 2px;
 }
 
-.roiLabel { 
-  font-size: 0.78rem; 
-  color: #37607a; 
-  margin-top: 6px; 
+.roiLabel {
+  font-size: 0.7rem;
+  color: #37607a;
   display: block;
   line-height: 1.2;
 }
@@ -159,17 +193,17 @@
 .face3 .inner { transform: rotateY(-270deg); }
 
 /* Position facets around Y axis */
-.cover { transform: rotateY(0deg) translateZ(160px); }
-.outcomes { transform: rotateY(90deg) translateZ(160px); }
-.roi { transform: rotateY(180deg) translateZ(160px); }
-.pilot { transform: rotateY(270deg) translateZ(160px); }
+.cover { transform: rotateY(0deg) translateZ(170px); }
+.outcomes { transform: rotateY(90deg) translateZ(170px); }
+.roi { transform: rotateY(180deg) translateZ(170px); }
+.pilot { transform: rotateY(270deg) translateZ(170px); }
 
 /* Pager and accessibility */
 .pager { 
   position: absolute; 
-  bottom: 12px; 
-  left: 12px; 
-  right: 12px; 
+  bottom: 16px; 
+  left: 20px; 
+  right: 20px; 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
@@ -264,20 +298,21 @@
 .roiDetails {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+  width: 100%;
 }
 
 .roiAssumptions {
-  padding: 8px 12px;
-  background: #f8f9fa;
+  padding: 8px 10px;
+  background: #f0f7ff;
   border-radius: 6px;
   border-left: 3px solid #0B3B6F;
 }
 
 .roiAssumptions small {
-  color: #666;
-  line-height: 1.4;
-  font-size: 0.85rem;
+  color: #1e3a5f;
+  line-height: 1.3;
+  font-size: 0.75rem;
 }
 
 .roiGrid {
@@ -312,27 +347,39 @@
 }
 
 .pilot p {
-  color: #555;
+  color: #394a55;
   line-height: 1.5;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   flex-grow: 1;
+  font-size: 0.85rem;
 }
 
 /* CTA */
-.cta { 
-  margin-top: auto; 
-  background: #0b67ff; 
-  color: #fff; 
-  border: none; 
-  padding: 12px 16px; 
-  border-radius: 6px; 
-  cursor: pointer; 
-  font-size: 0.95rem;
+.cta {
+  margin-top: auto;
+  background: linear-gradient(135deg, #0B3B6F 0%, #0a3560 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(11,67,111,0.2);
 }
 
 .cta:hover {
+  background: linear-gradient(135deg, #0a3560 0%, #093050 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(11,67,111,0.3);
+}
+
+.cta:focus {
+  outline: 2px solid #0B3B6F;
+  outline-offset: 2px;
+}.cta:hover {
   background: #0952cc;
 }
 
@@ -359,7 +406,7 @@
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .card {
-    height: 380px;
+    height: 400px;
   }
   
   .facet {
@@ -376,9 +423,9 @@
   }
   
   .pager {
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
+    bottom: 12px;
+    left: 16px;
+    right: 16px;
   }
   
   .roiGrid {
@@ -404,7 +451,7 @@
 
 @media (max-width: 480px) {
   .card {
-    height: 360px;
+    height: 380px;
   }
   
   .facet {
