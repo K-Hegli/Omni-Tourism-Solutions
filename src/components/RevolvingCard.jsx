@@ -24,11 +24,28 @@ export default function RevolvingCard({ module }) {
       onKeyDown={onKey}
       ref={cardRef}
     >
+      <div aria-live="polite" className={styles.srAnnounce} style={{position:'absolute', left:'-9999px', top:'auto', width:'1px', height:'1px', overflow:'hidden'}}>
+        {['Cover','Outcomes','ROI','Pilot'][face]} facet, showing {module.title}
+      </div>
       <div className={styles.inner}>
         <div className={styles.facet + ' ' + styles.cover}>
-          <img src={module.image} alt={module.title} className={styles.image} />
-          <h3 className={styles.title}>{module.title}</h3>
-          <p className={styles.oneLiner}>{module.oneLiner}</p>
+          <div className={styles.symbolWrap} aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.symbol}>
+              <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="2" />
+              <path d="M20 14c0-2.2 1.8-4 4-4s4 1.8 4 4c0 2.2-3.1 6.2-4 7.5-.9-1.3-4-5.3-4-7.5z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinejoin="round" />
+              <circle cx="24" cy="14" r="1.5" fill="currentColor" />
+              <g strokeWidth="2" stroke="currentColor" strokeLinecap="round">
+                <line x1="14" y1="28" x2="34" y2="28" />
+                <line x1="14" y1="32" x2="30" y2="32" />
+                <line x1="14" y1="36" x2="32" y2="36" />
+              </g>
+            </svg>
+          </div>
+
+          <div className={styles.coverText}>
+            <h3 className={styles.title}>{module.title}</h3>
+            <p className={styles.oneLiner}>{module.oneLiner}</p>
+          </div>
         </div>
 
         <div className={styles.facet + ' ' + styles.outcomes}>
@@ -39,21 +56,47 @@ export default function RevolvingCard({ module }) {
         </div>
 
         <div className={styles.facet + ' ' + styles.roi}>
-          <h4>ROI snapshot</h4>
-          <p className={styles.impact}><strong>{module.impactMetric}</strong></p>
-          <div className={styles.roiNumbers}>
-            {module.roiSnapshot ? (
-              <>
-                <div><span className={styles.roiBig}>{module.roiSnapshot.netSaving}</span><span className={styles.roiLabel}>Net monthly saving</span></div>
-                <div><span className={styles.roiBig}>{module.roiSnapshot.payback}</span><span className={styles.roiLabel}>First-month ROI</span></div>
-              </>
-            ) : (
-              <>
-                <div><span className={styles.roiBig}>€1,655</span><span className={styles.roiLabel}>Example monthly net</span></div>
-                <div><span className={styles.roiBig}>222%</span><span className={styles.roiLabel}>Example payback</span></div>
-              </>
-            )}
-          </div>
+          <h4 className={styles.roiHeading}>ROI snapshot</h4>
+          {module.roiSnapshot ? (
+            <div className={styles.roiDetails}>
+              <div className={styles.roiAssumptions}>
+                <small><strong>Assumptions:</strong> {module.roiSnapshot.assumptions}</small>
+              </div>
+              <div className={styles.roiGrid}>
+                <div className={styles.roiItem}>
+                  <div className={styles.roiBig}>{module.roiSnapshot.timeSaved}</div>
+                  <div className={styles.roiLabel}>Time saved per staff</div>
+                </div>
+                <div className={styles.roiItem}>
+                  <div className={styles.roiBig}>{module.roiSnapshot.monthlyValue}</div>
+                  <div className={styles.roiLabel}>Monthly value</div>
+                </div>
+                <div className={styles.roiItem}>
+                  <div className={styles.roiBig}>{module.roiSnapshot.monthlyCost}</div>
+                  <div className={styles.roiLabel}>Monthly cost</div>
+                </div>
+                <div className={styles.roiItem}>
+                  <div className={styles.roiBig}>{module.roiSnapshot.netSaving}</div>
+                  <div className={styles.roiLabel}>Net monthly saving</div>
+                </div>
+                <div className={styles.roiItem}>
+                  <div className={styles.roiBig}>{module.roiSnapshot.payback}</div>
+                  <div className={styles.roiLabel}>First-month ROI</div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className={styles.roiGrid}>
+              <div className={styles.roiItem}>
+                <div className={styles.roiBig}>€1,655</div>
+                <div className={styles.roiLabel}>Example monthly net</div>
+              </div>
+              <div className={styles.roiItem}>
+                <div className={styles.roiBig}>222%</div>
+                <div className={styles.roiLabel}>Example payback</div>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className={styles.facet + ' ' + styles.pilot}>

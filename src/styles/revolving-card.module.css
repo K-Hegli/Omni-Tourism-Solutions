@@ -1,66 +1,158 @@
-.card { 
-  width: 320px; 
-  height: 420px; 
-  perspective: 1200px; 
-  position: relative; 
-  margin: 12px; 
-  border-radius: 10px; 
-  overflow: visible; 
+/* Card container adjustments */
+.card {
+  width: 320px;
+  height: 380px;
+  perspective: 1000px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(10,20,40,0.06);
+  border: 1px solid rgba(15,25,40,0.06);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
 }
 
-.inner { 
-  width: 100%; 
-  height: 100%; 
-  position: relative; 
-  transform-style: preserve-3d; 
-  transition: transform 500ms cubic-bezier(.2,.9,.3,1); 
+.card:focus-visible {
+  outline: 3px solid rgba(11,67,111,0.12);
+  outline-offset: 3px;
 }
 
-.facet { 
-  position: absolute; 
-  inset: 0; 
-  backface-visibility: hidden; 
-  padding: 20px; 
-  box-sizing: border-box; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; 
-  background: #fff; 
-  border: 1px solid #e6e6e6; 
-  border-radius: 10px; 
+/* Inner 3D container */
+.inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 480ms cubic-bezier(.2,.9,.3,1);
+  border-radius: 12px;
 }
 
+/* Shared facet style */
+.facet {
+  position: absolute;
+  inset: 0;
+  padding: 18px 18px 62px 18px;
+  box-sizing: border-box;
+  background: #fff;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 12px;
+}
+
+/* Cover: symbol + text layout */
 .cover { 
   display: flex; 
-  align-items: flex-end; 
-  background: linear-gradient(180deg, #ffffffcc, #f8f8f8); 
+  align-items: flex-start; 
+  gap: 12px; 
 }
 
-.image { 
-  width: 100%; 
-  height: 160px; 
-  object-fit: cover; 
-  border-radius: 8px; 
-  margin-bottom: 12px; 
+.symbolWrap { 
+  width: 48px; 
+  height: 48px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  color: #0B3B6F;
+  flex-shrink: 0;
+}
+
+.symbol {
+  color: inherit;
+}
+
+.coverText { 
+  flex: 1; 
 }
 
 .title { 
-  margin: 0 0 6px; 
+  margin: 0; 
   font-size: 1.05rem; 
-  font-weight: 600;
-  color: #333;
+  font-weight: 600; 
+  color: #08263a; 
+  line-height: 1.3;
 }
 
 .oneLiner { 
-  margin: 0; 
-  color: #333; 
-  font-size: 0.95rem; 
+  margin: 4px 0 0; 
+  font-size: 0.92rem; 
+  color: #394a55; 
+  line-height: 1.4;
 }
 
+/* Outcomes, ROI and Pilot facet base */
 .outcomes, .roi, .pilot { 
-  transform: rotateY(0deg) translateZ(0px); 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
 }
 
+.outcomes ul { 
+  margin: 8px 0 0; 
+  padding-left: 18px; 
+  color: #263845; 
+  list-style: disc;
+}
+
+.outcomes li { 
+  margin-bottom: 6px; 
+  line-height: 1.4;
+}
+
+.outcomes h4, .roi h4, .pilot h4 {
+  margin: 0 0 12px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0e2b45;
+}
+
+/* ROI specific */
+.roiHeading { 
+  margin: 0 0 8px; 
+  font-size: 0.95rem; 
+  color: #0e2b45; 
+  font-weight: 600;
+}
+
+.roiGrid { 
+  display: flex; 
+  gap: 12px; 
+  width: 100%; 
+}
+
+.roiItem { 
+  flex: 1; 
+  text-align: center; 
+  padding: 12px; 
+  border-radius: 8px; 
+  background: #f7fbff; 
+  border: 1px solid rgba(11,67,111,0.06); 
+}
+
+.roiBig { 
+  font-size: 1.05rem; 
+  font-weight: 700; 
+  color: #0B3B6F; 
+  display: block;
+  line-height: 1.2;
+}
+
+.roiLabel { 
+  font-size: 0.78rem; 
+  color: #37607a; 
+  margin-top: 6px; 
+  display: block;
+  line-height: 1.2;
+}
+
+/* Pilot CTA stick to bottom */
+.pilot { 
+  justify-content: space-between; 
+}
+
+/* Rotation states */
 .face0 .inner { transform: rotateY(0deg); }
 .face1 .inner { transform: rotateY(-90deg); }
 .face2 .inner { transform: rotateY(-180deg); }
@@ -72,6 +164,7 @@
 .roi { transform: rotateY(180deg) translateZ(160px); }
 .pilot { transform: rotateY(270deg) translateZ(160px); }
 
+/* Pager and accessibility */
 .pager { 
   position: absolute; 
   bottom: 12px; 
@@ -86,14 +179,22 @@
 .pagerBtn { 
   background: transparent; 
   border: none; 
-  font-size: 20px; 
-  padding: 6px; 
+  font-size: 18px; 
+  padding: 6px 8px; 
   cursor: pointer; 
   color: #666;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
 .pagerBtn:hover {
-  color: #333;
+  background: rgba(11,67,111,0.08);
+  color: #0B3B6F;
+}
+
+.pagerBtn:focus {
+  outline: 2px solid #0B3B6F;
+  outline-offset: 1px;
 }
 
 .dots { 
@@ -103,25 +204,30 @@
 }
 
 .dot { 
-  width: 10px; 
-  height: 10px; 
+  width: 8px; 
+  height: 8px; 
   border-radius: 50%; 
-  background: #ddd; 
+  background: #e5eef6; 
   border: none; 
   cursor: pointer; 
   transition: background-color 0.2s ease;
 }
 
 .dot.active { 
-  background: #333; 
+  background: #0B3B6F; 
 }
 
 .dot:hover {
-  background: #999;
+  background: #bdd4e7;
 }
 
 .dot.active:hover {
-  background: #111;
+  background: #0a3560;
+}
+
+.dot:focus {
+  outline: 2px solid #0B3B6F;
+  outline-offset: 2px;
 }
 
 /* Facet-specific styles */
@@ -148,20 +254,39 @@
   color: #333;
 }
 
-.roi .impact {
-  font-size: 1.2rem;
-  margin: 0 0 20px 0;
-  text-align: center;
-  color: #0b67ff;
+.roi .roiHeading {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
 }
 
-.roiNumbers {
+.roiDetails {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.roiNumbers > div {
+.roiAssumptions {
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #0B3B6F;
+}
+
+.roiAssumptions small {
+  color: #666;
+  line-height: 1.4;
+  font-size: 0.85rem;
+}
+
+.roiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.roiItem {
   text-align: center;
   padding: 12px;
   background: #f8f9fa;
@@ -170,17 +295,20 @@
 
 .roiBig {
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #0b67ff;
+  color: #0B3B6F;
   line-height: 1;
+  margin-bottom: 4px;
 }
 
 .roiLabel {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #666;
-  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .pilot p {
@@ -213,9 +341,14 @@
   outline-offset: 2px;
 }
 
-/* Card focus and hover states */
+/* Keyboard navigation focus indicator */
+.card:focus-within {
+  outline: 3px solid #0B3B6F;
+  outline-offset: 3px;
+}
+
 .card:focus {
-  outline: 2px solid #0b67ff;
+  outline: 2px solid #0B3B6F;
   outline-offset: 4px;
 }
 
@@ -223,46 +356,23 @@
   cursor: pointer;
 }
 
-/* Responsive design */
-@media (max-width: 720px) { 
-  .card { 
-    width: 100%; 
-    height: 360px; 
-    margin: 8px 0;
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .card {
+    height: 380px;
   }
   
   .facet {
     padding: 16px;
   }
   
-  .image {
-    height: 120px;
+  .facetCover .symbol {
+    font-size: 2.5rem;
   }
   
-  .title {
-    font-size: 1rem;
-  }
-  
-  .oneLiner {
-    font-size: 0.9rem;
-  }
-  
-  .roiNumbers > div {
-    padding: 8px;
-  }
-  
-  .roiBig {
+  .facetCover h3 {
     font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    height: 320px;
-  }
-  
-  .image {
-    height: 100px;
+    margin-top: 12px;
   }
   
   .pager {
@@ -270,49 +380,128 @@
     left: 8px;
     right: 8px;
   }
+  
+  .roiGrid {
+    gap: 8px;
+  }
+  
+  .roiItem {
+    padding: 8px;
+  }
+  
+  .roiBig {
+    font-size: 1.2rem;
+  }
+  
+  .roiAssumptions {
+    padding: 6px 8px;
+  }
+  
+  .roiAssumptions small {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    height: 360px;
+  }
+  
+  .facet {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .facetCover .symbol {
+    font-size: 2rem;
+  }
+  
+  .facetCover h3 {
+    font-size: 1.3rem;
+  }
+  
+  .pagerBtn {
+    font-size: 16px;
+    padding: 4px 6px;
+  }
+  
+  .dots {
+    gap: 4px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .roiGrid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  
+  .roiItem {
+    padding: 6px;
+  }
+  
+  .roiBig {
+    font-size: 1.1rem;
+  }
 }
 
 /* Dark theme compatibility */
 @media (prefers-color-scheme: dark) {
   .facet {
-    background: #1a1a1a;
-    border-color: #333;
-    color: #e0e0e0;
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
   }
   
-  .cover {
-    background: linear-gradient(180deg, #1a1a1acc, #0f0f0f);
+  .facetCover {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   }
   
-  .title, .outcomes h4, .roi h4, .pilot h4 {
-    color: #e0e0e0;
+  .facetCover h3 {
+    color: #f9fafb;
   }
   
-  .oneLiner, .outcomes li, .pilot p {
-    color: #b0b0b0;
+  .outcomes h4, .roi h4, .pilot h4 {
+    color: #f9fafb;
+  }
+  
+  .outcomes li, .pilot p {
+    color: #d1d5db;
   }
   
   .outcomes li strong {
-    color: #e0e0e0;
+    color: #f9fafb;
   }
   
-  .roiNumbers > div {
-    background: #2a2a2a;
+  .roiItem {
+    background: #374151;
   }
   
-  .dot {
-    background: #555;
-  }
-  
-  .dot.active {
-    background: #e0e0e0;
+  .roiLabel {
+    color: #9ca3af;
   }
   
   .pagerBtn {
-    color: #b0b0b0;
+    color: #9ca3af;
   }
   
   .pagerBtn:hover {
-    color: #e0e0e0;
+    background: rgba(59,130,246,0.08);
+    color: #60a5fa;
+  }
+  
+  .dot {
+    background: #4b5563;
+  }
+  
+  .dot.active {
+    background: #60a5fa;
+  }
+  
+  .dot:hover {
+    background: #6b7280;
   }
 }

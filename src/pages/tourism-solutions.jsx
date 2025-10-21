@@ -11,8 +11,8 @@ const tourismModules = [
   {
     id: 'tourops',
     title: 'TourOps — Central Tour Operations Platform',
+    slug: 'tourops',
     oneLiner: 'Manage tours, bookings, guides and rostering from a single, reliable interface.',
-    image: '/images/modules/tourops-dashboard.jpg',
     bullets: [
       'Reduce manual admin — centralise inventory and replace spreadsheets',
       'Faster confirmations — automated voucher and booking flows shorten time-to-confirmation',
@@ -29,7 +29,6 @@ const tourismModules = [
     },
     details: '2‑week Booking Audit — map one tour flow, build a booking microflow and run a voucher test. Deliverables: microflow prototype; KPI baseline; integration checklist; one‑page findings.',
     ctaText: 'Request TourOps scoping',
-    slug: 'tourops',
     integrationsLine: 'Integrates with PMS API; voucher generation; calendar and rostering',
     microCopy: {
       cardTitle: 'TourOps',
@@ -41,47 +40,89 @@ const tourismModules = [
   {
     id: 'booking-optimization',
     title: 'BookingFlow Pro',
+    slug: 'booking-optimization',
     oneLiner: 'AI-powered reservation optimization',
-    image: '/images/modules/booking-flow.jpg',
     bullets: [
       'Conversion Rate — Increase booking completion by 32% with smart form optimization',
       'Revenue Growth — Dynamic pricing algorithms boost average booking value',
       'Customer Experience — Seamless multi-device booking journey'
     ],
     impactMetric: '+32% booking conversion',
+    roiSnapshot: {
+      assumptions: '100 bookings/month; €50 avg booking; 32% conversion increase',
+      timeSaved: 'N/A',
+      monthlyValue: '€1,600',
+      monthlyCost: '€450',
+      netSaving: '€1,150',
+      payback: '~256% first-month ROI'
+    },
     details: '2-week pilot includes booking flow analysis, A/B testing setup, and initial optimization implementation.',
     ctaText: 'Start Booking Optimization',
-    slug: 'booking-optimization'
+    integrationsLine: 'Integrates with booking engines; payment processors; CRM systems',
+    microCopy: {
+      cardTitle: 'BookingFlow Pro',
+      cardSubtitle: 'AI-powered reservations',
+      miniCTA: 'Pilot — 2 weeks',
+      trustLine: 'Quick deployment; measurable results within first month'
+    }
   },
   {
     id: 'guest-connectivity',
     title: 'TravelConnect',
+    slug: 'guest-connectivity',
     oneLiner: 'Global connectivity solutions',
-    image: '/images/modules/connectivity.jpg',
     bullets: [
       'Coverage — Seamless connectivity in 180+ countries worldwide',
       'Cost Reduction — Eliminate international roaming charges for guests',
       'Guest Satisfaction — 24/7 support in multiple languages'
     ],
     impactMetric: '98% guest satisfaction',
+    roiSnapshot: {
+      assumptions: '50 guests/month; €25 avg connectivity cost; 100% cost elimination',
+      timeSaved: 'N/A',
+      monthlyValue: '€1,250',
+      monthlyCost: '€300',
+      netSaving: '€950',
+      payback: '~317% first-month ROI'
+    },
     details: '1-week pilot provides connectivity packages for test group with full analytics dashboard.',
     ctaText: 'Test Connectivity Solutions',
-    slug: 'guest-connectivity'
+    integrationsLine: 'Integrates with PMS systems; guest management platforms',
+    microCopy: {
+      cardTitle: 'TravelConnect',
+      cardSubtitle: 'Global connectivity',
+      miniCTA: 'Pilot — 1 week',
+      trustLine: 'Instant activation; global coverage guaranteed'
+    }
   },
   {
     id: 'revenue-management',
     title: 'YieldMax',
+    slug: 'revenue-management',
     oneLiner: 'Dynamic pricing & revenue optimization',
-    image: '/images/modules/revenue-management.jpg',
     bullets: [
       'Revenue Growth — Increase revenue per available room by 18%',
       'Automation — Real-time pricing adjustments based on demand',
       'Market Intelligence — Competitive analysis and positioning'
     ],
     impactMetric: '+18% revenue increase',
+    roiSnapshot: {
+      assumptions: '100 rooms; €100 avg nightly rate; 18% revenue increase',
+      timeSaved: 'N/A',
+      monthlyValue: '€5,400',
+      monthlyCost: '€800',
+      netSaving: '€4,600',
+      payback: '~575% first-month ROI'
+    },
     details: '3-week pilot includes pricing strategy setup, competitor analysis, and performance tracking.',
     ctaText: 'Optimize Revenue',
-    slug: 'revenue-management'
+    integrationsLine: 'Integrates with PMS systems; booking engines; market data feeds',
+    microCopy: {
+      cardTitle: 'YieldMax',
+      cardSubtitle: 'Revenue optimization',
+      miniCTA: 'Pilot — 3 weeks',
+      trustLine: 'Data-driven pricing; proven revenue increases'
+    }
   }
 ];
 

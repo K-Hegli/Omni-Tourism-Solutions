@@ -14,9 +14,10 @@ Welcome to the Omni Sales Funnel documentation! All documentation has been organ
 
 
 
-**New to the project?**1. **[SETUP_COMPLETE.md](./SETUP_COMPLETE.md)** - ⭐ **START HERE!** Setup complete guide
-
+**New to the project?**
+1. **[SETUP_COMPLETE.md](./SETUP_COMPLETE.md)** - ⭐ **START HERE!** Setup complete guide
 2. **[SUMMARY.md](./SUMMARY.md)** - Project overview and what's been built
+3. **[TOURISM_SOLUTIONS.md](./TOURISM_SOLUTIONS.md)** - Tourism solutions page with revolving cards
 
 1. **[SETUP_GUIDE.md](./SETUP_GUIDE.md)** - 🔥 **Complete setup, deployment & troubleshooting guide**3. **[QUICKSTART.md](./QUICKSTART.md)** - Get up and running in minutes
 
