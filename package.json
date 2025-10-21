@@ -1,0 +1,57 @@
+{
+  "name": "interactive-sales-funnel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "npx vite build",
+    "preview": "vite preview",
+    "serve": "vite preview",
+    "vercel-build": "npm run build",
+    "postinstall": "chmod +x node_modules/.bin/vite || true",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "type-check": "tsc --noEmit",
+    "audit:theme": "node audit-theme.js",
+    "audit:install": "npm install jsdom glob --save-dev",
+    "check:favicons": "node scripts/check-favicons.js"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "axios": "^1.6.0",
+    "framer-motion": "^6.0.0",
+    "react": "^18.0.0",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^18.0.0",
+    "react-hook-form": "^7.48.0",
+    "react-router-dom": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "postcss": "^8.0.0",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^3.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.4.0"
+  },
+  "engines": {
+    "node": "22.x",
+    "npm": ">=8.x"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

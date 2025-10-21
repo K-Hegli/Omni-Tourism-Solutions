@@ -1,0 +1,863 @@
+@import './theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global dark cinematic background */
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-black via-[#0a0a0a] to-[#1a1a1a] text-offWhite;
+  }
+}
+
+/* gradient text utility */
+.gradient-text {
+  @apply bg-primary-gradient bg-clip-text text-transparent;
+}
+
+/* Contact Dropdown Triangle Grid Layout */
+.contact-triangle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "flip flip"
+    "meeting call";
+  gap: 0.75rem;
+}
+
+.contact-btn-flip {
+  grid-area: flip;
+}
+
+.contact-btn:nth-child(2) {
+  grid-area: meeting;
+}
+
+.contact-btn:nth-child(3) {
+  grid-area: call;
+}
+
+/* Email Flip Card Subtle Glow Animation */
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 92, 51, 0.2), 0 0 20px rgba(255, 92, 51, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 92, 51, 0.35), 0 0 30px rgba(255, 92, 51, 0.15);
+  }
+}
+
+.email-flip-glow {
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+/* Global icon ring with animated hover glow */
+.icon-ring {
+  @apply relative flex items-center justify-center rounded-full ring-2 ring-[#ff5c33] transition-all duration-300;
+}
+
+.icon-ring::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  background: linear-gradient(90deg, #ff5c33, #ff2a5f, #ff5c33) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.icon-ring:hover::after {
+  opacity: 1;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* card hover effect */
+@layer components {
+  .card {
+    @apply relative rounded-xl p-8 text-offWhite transition-all duration-300;
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 1px solid rgba(255, 92, 51, 0.25);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Metallic gradient edge effect */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    padding: 1px;
+    background: linear-gradient(135deg, #ff5c33, #ff2a5f, #ff5c33);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Top highlight shine */
+  .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    pointer-events: none;
+  }
+  
+  .card:hover {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), 0 0 15px rgba(255, 92, 51, 0.4), 0 8px 25px rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
+  }
+  
+  .card:hover::before {
+    opacity: 0.8;
+  }
+  
+  .card-hover {
+    @apply relative rounded-xl p-8 text-offWhite transition-all duration-300;
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 1px solid rgba(255, 92, 51, 0.25);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  .card-hover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    padding: 1px;
+    background: linear-gradient(135deg, #ff5c33, #ff2a5f, #ff5c33);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  .card-hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    pointer-events: none;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255, 92, 51, 0.5), 0 10px 30px rgba(0, 0, 0, 0.7);
+  }
+  
+  .card-hover:hover::before {
+    opacity: 0.9;
+  }
+}
+
+/* flip card 3D transforms */
+.perspective {
+  perspective: 1000px;
+}
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* accordion animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+/* Service Card Enhancements */
+.service-card {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 92, 51, 0.2), rgba(255, 122, 51, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon-wrapper {
+  filter: drop-shadow(0 0 4px rgba(255, 92, 51, 0.3));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-icon-wrapper:hover {
+  filter: drop-shadow(0 0 10px rgba(255, 92, 51, 0.7));
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* input focus style */
+.calculator-input {
+  @apply bg-darkBg border border-gray-700 text-offWhite rounded-lg px-4 py-2 focus:border-[#ff5c33] focus:outline-none focus:shadow-[0_0_0_2px_rgba(255,92,51,0.3)];
+}
+
+/* Print-friendly styles for PDF export */
+@media print {
+  /* Base print styles with premium typography */
+  body {
+    background: white !important;
+    color: #111 !important;
+    font-family: 'Times New Roman', serif !important;
+    font-size: 11pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Enhanced page margins for professional look */
+  @page {
+    margin: 25mm 20mm 25mm 20mm;
+    size: A4;
+  }
+
+  /* Hide all interactive elements */
+  .print-hide, button, nav, input, textarea, select, .cursor-grab, .cursor-pointer {
+    display: none !important;
+  }
+
+  /* Premium section styling */
+  .print-section {
+    page-break-after: always;
+    page-break-inside: avoid;
+    padding: 2rem 0;
+    background: white !important;
+    margin-bottom: 3rem;
+  }
+
+  /* Prevent empty sections */
+  .print-section:empty,
+  .report-section:empty {
+    display: none !important;
+    page-break-after: auto !important;
+    page-break-before: auto !important;
+  }
+
+  /* Enhanced report section styling */
+  .report-section {
+    margin-bottom: 3rem;
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Premium typography hierarchy */
+  .section-title {
+    font-size: 20pt !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    font-family: 'Arial', sans-serif !important;
+    border-bottom: 3px solid #ff5c33 !important;
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
+    margin-top: 0 !important;
+  }
+
+  .section-subtitle {
+    font-size: 14pt !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    font-family: 'Arial', sans-serif !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .section-body {
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+    color: #222 !important;
+  }
+
+  /* Cover page styling */
+  .report-cover {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    text-align: center !important;
+    page-break-after: always !important;
+  }
+
+  .cover-content h1 {
+    font-size: 36pt !important;
+    font-weight: 900 !important;
+    color: #000 !important;
+    font-family: 'Arial Black', sans-serif !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .cover-title h2 {
+    font-size: 24pt !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    font-family: 'Arial', sans-serif !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .cover-meta {
+    margin-top: 4rem !important;
+  }
+
+  .cover-meta p {
+    font-size: 12pt !important;
+    color: #666 !important;
+    font-family: 'Arial', sans-serif !important;
+  }
+
+  /* Enhanced table styling */
+  .checklist {
+    border: 2px solid #333 !important;
+    border-collapse: collapse !important;
+    margin: 1rem 0 !important;
+    font-family: 'Arial', sans-serif !important;
+  }
+
+  .checklist th {
+    background: #f8f8f8 !important;
+    border: 1px solid #666 !important;
+    padding: 12px !important;
+    font-weight: 700 !important;
+    font-size: 11pt !important;
+    color: #000 !important;
+    text-align: left !important;
+  }
+
+  .checklist td {
+    border: 1px solid #ccc !important;
+    padding: 10px !important;
+    vertical-align: top !important;
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+  }
+
+  .checklist tbody tr:nth-child(even) {
+    background: #fafafa !important;
+  }
+
+  /* SWOT card styling for print */
+  .swot-card {
+    border: 2px solid #666 !important;
+    background: white !important;
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+    break-inside: avoid !important;
+  }
+
+  .swot-card h3 {
+    font-size: 14pt !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    margin-bottom: 0.5rem !important;
+    border-bottom: 2px solid #ff5c33 !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  .swot-card textarea {
+    border: 1px solid #999 !important;
+    background: white !important;
+    color: #000 !important;
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+    padding: 0.5rem !important;
+    min-height: 3rem !important;
+  }
+
+  /* Priority badges */
+  .priority-badge {
+    display: inline-block !important;
+    padding: 2px 8px !important;
+    border-radius: 12px !important;
+    font-size: 9pt !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .priority-high {
+    background: #ff5c33 !important;
+    color: white !important;
+  }
+
+  .priority-medium {
+    background: #ffa500 !important;
+    color: black !important;
+  }
+
+  .priority-low {
+    background: #90EE90 !important;
+    color: black !important;
+  }
+
+  /* Page break controls */
+  .page-break {
+    page-break-before: always !important;
+  }
+
+  /* Ensure proper text color */
+  h1, h2, h3, h4, h5, h6, p, span, div, label {
+    color: #000 !important;
+  }
+
+  /* Remove shadows and gradients */
+  * {
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+
+  /* Ensure links are plain text */
+  a {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+
+  /* Table of Contents styling */
+  .toc-section {
+    min-height: 80vh;
+    padding-top: 4rem;
+  }
+
+  .toc-section h1 {
+    font-size: 28pt !important;
+    margin-bottom: 2rem;
+  }
+
+  .toc-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toc-section li {
+    border-bottom: 1px solid #ccc !important;
+    padding: 12px 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    background: white !important;
+  }
+
+  .toc-section li span:first-child {
+    font-size: 14pt;
+  }
+
+  .toc-section li span:last-child {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #ff5c33 !important;
+  }
+
+  /* Table styling for capabilities grid - Enhanced prominence */
+  .capabilities-grid {
+    border: 2px solid #333 !important;
+    margin-bottom: 1rem;
+    border-collapse: collapse !important;
+  }
+
+  .capabilities-grid th {
+    background: #f0f0f0 !important;
+    border: 2px solid #333 !important;
+    padding: 12px !important;
+    font-weight: bold !important;
+    font-size: 12pt !important;
+    color: #000 !important;
+    text-align: left !important;
+  }
+
+  .capabilities-grid td {
+    border: 1px solid #666 !important;
+    padding: 10px !important;
+    vertical-align: top;
+    color: #111 !important;
+    font-size: 11pt !important;
+  }
+
+  .capabilities-grid tbody tr:nth-child(even) {
+    background: #fafafa !important;
+  }
+
+  .capabilities-grid tbody tr:nth-child(odd) {
+    background: white !important;
+  }
+
+  /* Ensure table text is highly visible in print */
+  .capabilities-grid td:first-child {
+    font-weight: bold !important;
+    color: #000 !important;
+  }
+
+  .capabilities-grid td:nth-child(2) {
+    color: #222 !important;
+  }
+
+  /* Specific styling for BusinessCapabilities tables in print */
+  .capabilities-table .capabilities-grid td {
+    color: #000 !important;
+    font-weight: normal !important;
+  }
+
+  .capabilities-table .capabilities-grid td:first-child {
+    font-weight: bold !important;
+    color: #000 !important;
+  }
+
+  .capabilities-table .capabilities-grid td:nth-child(2) {
+    color: #333 !important;
+    font-weight: normal !important;
+  }
+
+  /* Enhanced checklist table styling */
+  .checklist {
+    border: 2px solid #333 !important;
+    border-collapse: collapse !important;
+    margin-bottom: 1rem;
+  }
+
+  .checklist th {
+    background: #f0f0f0 !important;
+    border: 2px solid #333 !important;
+    padding: 12px !important;
+    font-weight: bold !important;
+    font-size: 12pt !important;
+    color: #000 !important;
+    text-align: left !important;
+  }
+
+  .checklist td {
+    border: 1px solid #666 !important;
+    padding: 10px !important;
+    color: #111 !important;
+    font-size: 11pt !important;
+  }
+
+  .checklist tbody tr:nth-child(even) {
+    background: #fafafa !important;
+  }
+
+  .checklist tbody tr:nth-child(odd) {
+    background: white !important;
+  }
+
+  /* Enhanced checkbox styling for print - more reliable */
+  .print-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #000 !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 3px !important;
+    position: relative !important;
+    background: white !important;
+    margin: 0 auto !important;
+    display: inline-block !important;
+  }
+
+  .print-checkbox:checked {
+    background: #000 !important;
+    border-color: #000 !important;
+  }
+
+  .print-checkbox:checked::after {
+    content: "✓" !important;
+    position: absolute !important;
+    top: -1px !important;
+    left: 2px !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: white !important;
+    line-height: 1 !important;
+  }
+
+  /* Ensure all form inputs display their values in print */
+  input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #000 !important;
+    background: white !important;
+    border: 1px solid #666 !important;
+  }
+
+  /* Force display of input values in print */
+  input[type="text"]:not(:placeholder-shown),
+  input[type="email"]:not(:placeholder-shown),
+  input[type="tel"]:not(:placeholder-shown),
+  textarea:not(:placeholder-shown) {
+    color: #000 !important;
+    font-weight: normal !important;
+  }
+
+  /* Ensure select dropdowns show selected values */
+  select {
+    color: #000 !important;
+    background: white !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+
+  select option {
+    color: #000 !important;
+    background: white !important;
+  }
+
+  /* Notes field styling */
+  .notes-field {
+    min-height: 2rem !important;
+    border: 1px solid #ddd !important;
+    background: white !important;
+  }
+
+  /* Enhanced SWOT grid styling with color accents */
+  .card {
+    border: 2px solid #333 !important;
+    box-shadow: none !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* SWOT card layout for print with color coding */
+  .swot-section {
+    page-break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+
+  .swot-section h3 {
+    font-size: 16pt !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 2px solid #ff5c33 !important;
+  }
+
+  /* Color-coded SWOT categories */
+  .swot-section[data-category="strengths"] h3 {
+    border-bottom-color: #4CAF50 !important; /* Green for strengths */
+  }
+
+  .swot-section[data-category="weaknesses"] h3 {
+    border-bottom-color: #f44336 !important; /* Red for weaknesses */
+  }
+
+  .swot-section[data-category="opportunities"] h3 {
+    border-bottom-color: #2196F3 !important; /* Blue for opportunities */
+  }
+
+  .swot-section[data-category="threats"] h3 {
+    border-bottom-color: #ff9800 !important; /* Orange for threats */
+  }
+
+  /* Individual SWOT entry cards with subtle backgrounds */
+  .swot-section > div > div > div {
+    border: 1px solid #666 !important;
+    padding: 14px !important;
+    margin-bottom: 10px !important;
+    border-radius: 6px !important;
+    page-break-inside: avoid;
+    background: #fafafa !important;
+  }
+
+  /* Enhanced SWOT entry labels */
+  .swot-section label {
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    color: #333 !important;
+    display: block !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Enhanced SWOT entry inputs and textareas */
+  .swot-section textarea,
+  .swot-section select {
+    border: 1px solid #999 !important;
+    background: white !important;
+    color: #000 !important;
+    padding: 8px !important;
+    font-size: 11pt !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+    min-height: 60px !important;
+  }
+
+  /* Ensure SWOT text content is visible */
+  .swot-section textarea {
+    color: #000 !important;
+    font-weight: normal !important;
+  }
+
+  .swot-section textarea:empty::before {
+    content: attr(placeholder) !important;
+    color: #666 !important;
+    font-style: italic !important;
+  }
+
+  /* Priority badges in print with color */
+  .swot-section select {
+    background: white !important;
+    border: 1px solid #666 !important;
+  }
+
+  .swot-section select option {
+    color: #000 !important;
+    background: white !important;
+  }
+
+  /* Maintain grid layouts but simplify */
+  .grid {
+    break-inside: avoid;
+  }
+
+  /* Ensure capabilities table doesn't break across pages */
+  .capabilities-table {
+    page-break-inside: avoid;
+  }
+
+  /* Typography consistency */
+  .font-heading {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Print-only and screen-only utilities */
+  .print-only {
+    display: none !important;
+  }
+
+  .screen-only {
+    display: block !important;
+  }
+}
+
+/* Screen-only content (hidden in print) */
+.screen-only {
+  display: block;
+}
+
+/* Print-only content (hidden on screen) */
+.print-only {
+  display: none;
+}
+
+/* Flip Card CSS Helpers */
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.flip-inner {
+  transition: transform 0.6s;
+}
+
+/* Service Card Styles */
+.service-card {
+  background: linear-gradient(to bottom right, #1f1f1f, #111111);
+  border: 1px solid rgba(255, 92, 51, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+.service-card:hover {
+  box-shadow: 0 8px 16px rgba(255, 92, 51, 0.4);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(to right, #ff2a5f, #ff5c33);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 20px 25px -5px rgba(255, 92, 51, 0.5), 0 10px 10px -5px rgba(255, 92, 51, 0.25);
+}
+
+/* Section Icon Utilities for consistent styling */
+.section-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.75rem;
+  color: var(--brand-accent, #ff5c33);
+  flex-shrink: 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--text-color, #fff);
+}
