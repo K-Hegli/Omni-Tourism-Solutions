@@ -1,0 +1,346 @@
+/* Tourism Solutions Page CSS Module */
+
+/* Grid Layouts */
+.grid3up {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid3up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid3up {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Mobile Stack Layout */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .stack {
+    gap: 2rem;
+  }
+}
+
+/* Button Styles */
+.ctaPrimary {
+  background: linear-gradient(90deg, #ff2a5f, #ff5c33);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 92, 51, 0.3);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.ctaPrimary:hover {
+  box-shadow: 0 6px 20px rgba(255, 92, 51, 0.4);
+  transform: translateY(-1px);
+  color: white;
+  text-decoration: none;
+}
+
+.ctaPrimary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 92, 51, 0.5);
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: #ff5c33;
+  border: 2px solid #ff5c33;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  background: #ff5c33;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 92, 51, 0.3);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.ctaSecondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 92, 51, 0.5);
+}
+
+/* Section Spacing */
+.section {
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    margin-bottom: 6rem;
+  }
+}
+
+/* Hero Enhancements */
+.heroTitle {
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(90deg, #ff2a5f, #ff5c33);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(255, 42, 95, 0.3), 0 0 80px rgba(255, 92, 51, 0.2);
+}
+
+.heroSubtitle {
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Card Enhancements */
+.moduleCard {
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: 1px solid rgba(255, 92, 51, 0.25);
+  border-radius: 0.75rem;
+  box-shadow: 
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.moduleCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  padding: 1px;
+  background: linear-gradient(135deg, #ff5c33, #ff2a5f, #ff5c33);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.moduleCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  pointer-events: none;
+}
+
+.moduleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    inset 0 1px rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(255, 92, 51, 0.5),
+    0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.moduleCard:hover::before {
+  opacity: 0.9;
+}
+
+/* Process Steps */
+.processStep {
+  position: relative;
+}
+
+.stepConnector {
+  position: absolute;
+  top: 2.5rem;
+  right: -2rem;
+  width: 4rem;
+  height: 2px;
+  background: linear-gradient(90deg, #ff5c33, transparent);
+  z-index: 10;
+}
+
+.stepConnector::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid #ff5c33;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+@media (max-width: 767px) {
+  .stepConnector {
+    display: none;
+  }
+}
+
+/* Trust Strip */
+.trustMetric {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: 1px solid rgba(255, 92, 51, 0.2);
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.trustMetric:hover {
+  transform: translateY(-2px);
+}
+
+/* Form Enhancements */
+.formInput {
+  background: #1f1f1f;
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #ff5c33;
+  box-shadow: 0 0 0 3px rgba(255, 92, 51, 0.1);
+}
+
+.formInput::placeholder {
+  color: #888;
+}
+
+/* ROI Embed */
+.roiPreview {
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .heroTitle {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}
+
+/* Animation Utilities */
+.fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.staggerDelay1 {
+  animation-delay: 0.1s;
+}
+
+.staggerDelay2 {
+  animation-delay: 0.2s;
+}
+
+.staggerDelay3 {
+  animation-delay: 0.3s;
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .moduleCard,
+  .trustMetric,
+  .ctaPrimary,
+  .ctaSecondary {
+    transition: none;
+  }
+  
+  .fadeInUp,
+  .spinner {
+    animation: none;
+  }
+}
+
+/* Focus Styles for Keyboard Navigation */
+.focusRing:focus {
+  outline: 2px solid #ff5c33;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .moduleCard {
+    border-color: #ff5c33;
+    border-width: 2px;
+  }
+  
+  .ctaPrimary,
+  .ctaSecondary {
+    border-width: 2px;
+  }
+}

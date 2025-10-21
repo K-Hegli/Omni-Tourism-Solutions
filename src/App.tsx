@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navigation from './components/Navigation';
 import WhoWeAre from './pages/WhoWeAre';
 import ServicesAndPartners from './pages/ServicesAndPartners';
+import TourismSolutions from './pages/tourism-solutions';
 import AboutYou from './pages/AboutYou';
 
 const App: React.FC = () => {
@@ -11,10 +12,11 @@ const App: React.FC = () => {
       <Navigation />
       <Routes>
         <Route path="/" element={<WhoWeAre />} />
-  <Route path="/services" element={<ServicesAndPartners />} />
-  {/* Legacy redirects */}
-  <Route path="/what-we-do" element={<Navigate to="/services" replace />} />
-  <Route path="/next-stage" element={<Navigate to="/services" replace />} />
+        <Route path="/services" element={<ServicesAndPartners />} />
+        <Route path="/tourism-solutions" element={<TourismSolutions />} />
+        {/* Legacy redirects */}
+        <Route path="/what-we-do" element={<Navigate to="/services" replace />} />
+        <Route path="/next-stage" element={<Navigate to="/services" replace />} />
         <Route path="/about-you" element={<AboutYou />} />
       </Routes>
     </Router>
