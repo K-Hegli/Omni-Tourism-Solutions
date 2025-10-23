@@ -57,6 +57,9 @@
   position: relative;
   border-radius: 12px;
   cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-clip: padding-box;
 }
 
 /* 3D Inner rotator - this spins the cube */
@@ -87,6 +90,7 @@
   transform-style: preserve-3d;
   overflow: hidden;
   border: 1px solid var(--border-color);
+  box-sizing: border-box;
 }
 
 /* Position faces on the cube using translateZ for depth */

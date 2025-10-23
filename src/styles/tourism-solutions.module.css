@@ -33,6 +33,8 @@
   max-width: 560px;   /* larger card width for two-per-row layout */
   display: flex;
   justify-content: center;
+  padding: 0 12px;
+  box-sizing: border-box;
 }
 
 /* Grid Layouts */
