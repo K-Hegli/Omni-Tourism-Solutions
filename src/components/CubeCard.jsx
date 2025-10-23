@@ -51,7 +51,9 @@ export default function CubeCard({ module }) {
       </header>
 
       <div className={styles.body}>
-        {/* Front face content area - can be empty or have additional content */}
+        <div className={styles.bodyInner}>
+          {/* Front face content area - can be empty or have additional content */}
+        </div>
       </div>
 
       <footer className={styles.footer}>
@@ -69,15 +71,17 @@ export default function CubeCard({ module }) {
       </header>
 
       <div className={styles.body}>
-        <ul className={styles.bullets}>
-          {module.bullets.slice(0, 3).map((bullet, i) => (
-            <li key={i} className={styles.bullet}>
-              <strong className={styles.bulletStrong}>
-                {bullet.split(' — ')[0]}
-              </strong> {bullet.replace(/^[^—]+ — /, '')}
-            </li>
-          ))}
-        </ul>
+        <div className={styles.bodyInner}>
+          <ul className={styles.bullets}>
+            {module.bullets.slice(0, 3).map((bullet, i) => (
+              <li key={i} className={styles.bullet}>
+                <strong className={styles.bulletStrong}>
+                  {bullet.split(' — ')[0]}
+                </strong> {bullet.replace(/^[^—]+ — /, '')}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <footer className={styles.footer}>
@@ -111,35 +115,37 @@ export default function CubeCard({ module }) {
       </header>
 
       <div className={styles.body}>
-        {module.roiSnapshot ? (
-          <div className={styles.roi}>
-            <p className={styles.roiAssumptions}>
-              <strong>Assumptions:</strong> {module.roiSnapshot.assumptions}
-            </p>
-            <div className={styles.metrics}>
-              <div className={styles.label}>Time saved / staff</div>
-              <div className={styles.value}>{module.roiSnapshot.timeSaved}</div>
-              <div className={styles.label}>Monthly value</div>
-              <div className={styles.value}>{module.roiSnapshot.monthlyValue}</div>
-              <div className={styles.label}>Monthly cost</div>
-              <div className={styles.value}>{module.roiSnapshot.monthlyCost}</div>
-              <div className={styles.label}>Net monthly saving</div>
-              <div className={styles.value}>{module.roiSnapshot.netSaving}</div>
+        <div className={styles.bodyInner}>
+          {module.roiSnapshot ? (
+            <div className={styles.roi}>
+              <p className={styles.roiAssumptions}>
+                <strong>Assumptions:</strong> {module.roiSnapshot.assumptions}
+              </p>
+              <div className={styles.metrics}>
+                <div className={styles.label}>Time saved / staff</div>
+                <div className={styles.value}>{module.roiSnapshot.timeSaved}</div>
+                <div className={styles.label}>Monthly value</div>
+                <div className={styles.value}>{module.roiSnapshot.monthlyValue}</div>
+                <div className={styles.label}>Monthly cost</div>
+                <div className={styles.value}>{module.roiSnapshot.monthlyCost}</div>
+                <div className={styles.label}>Net monthly saving</div>
+                <div className={styles.value}>{module.roiSnapshot.netSaving}</div>
+              </div>
+              <div className={styles.highlight}>{module.roiSnapshot.payback}</div>
             </div>
-            <div className={styles.highlight}>{module.roiSnapshot.payback}</div>
-          </div>
-        ) : (
-          <div className={styles.roi}>
-            <p className={styles.roiAssumptions}>
-              <strong>Assumptions:</strong> Example calculation
-            </p>
-            <div className={styles.metrics}>
-              <div className={styles.label}>Net monthly saving</div>
-              <div className={styles.value}>€1,655</div>
+          ) : (
+            <div className={styles.roi}>
+              <p className={styles.roiAssumptions}>
+                <strong>Assumptions:</strong> Example calculation
+              </p>
+              <div className={styles.metrics}>
+                <div className={styles.label}>Net monthly saving</div>
+                <div className={styles.value}>€1,655</div>
+              </div>
+              <div className={styles.highlight}>222% first-month ROI</div>
             </div>
-            <div className={styles.highlight}>222% first-month ROI</div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       <footer className={styles.footer}>
@@ -173,7 +179,9 @@ export default function CubeCard({ module }) {
       </header>
 
       <div className={styles.body}>
-        <p className={styles.pilotText}>{module.details}</p>
+        <div className={styles.bodyInner}>
+          <p className={styles.pilotText}>{module.details}</p>
+        </div>
       </div>
 
       <footer className={styles.footer}>

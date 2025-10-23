@@ -9,16 +9,16 @@
   /* Cube dimensions and depth */
   --cube-width: 100%;
   --cube-height: 620px;   /* larger vertical space */
-  --cube-depth: 220px;    /* deeper cube for perspective */
+  --cube-depth: 180px;    /* reduce from 220 to 180 to avoid clipping */
   --cube-perspective: 1600px;
 
   /* Consistent sizing tokens */
   --card-h-desktop: 620px;   /* larger vertical space */
   --card-h-tablet: 520px;
   --card-h-mobile: 420px;
-  --depth-desktop: 220px;    /* deeper cube for perspective */
-  --depth-tablet: 170px;
-  --depth-mobile: 130px;
+  --depth-desktop: 180px;    /* reduce from 220 to 180 to avoid clipping */
+  --depth-tablet: 140px;
+  --depth-mobile: 110px;
   --pad-desktop: 22px;
   --pad-mobile: 16px;
 
@@ -102,8 +102,19 @@
 
 /* header / typography */
 .header { display:flex; flex-direction:column; gap:8px; }
-.title { font-size: clamp(1.05rem, 1.6vw, 1.3rem); margin:0; }
-.subtitle { font-size: clamp(.92rem, 1.1vw, 1rem); color:var(--text-muted); }
+.title { font-size: clamp(1rem, 1.3vw, 1.15rem); margin:0; }
+.subtitle { font-size: clamp(.85rem, 1vw, .95rem); color:var(--text-muted); }
+
+/* body scroll isolation */
+.body { min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
+.bodyInner {
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 6px;
+  max-height: calc(var(--card-h-desktop) - 180px);
+  position: relative;
+}
 
 .iconWrapper {
   width: 52px;
@@ -132,6 +143,10 @@
 
 /* body should adapt, not force the card to scroll */
 .body { min-height:0; display:grid; gap:10px; overflow:hidden; }
+
+/* content structure enforcement */
+.face p, .face ul { margin: 0; padding: 0; }
+.face ul { list-style: none; display: grid; gap: 8px; }
 
 .subtitle {
   font-size: 0.9rem;
@@ -338,6 +353,7 @@
   .face { padding: 20px; }
   .cardInner .face { --depth: var(--depth-tablet); }
   .body-scroll { max-height: calc(var(--card-h-tablet) - 220px); }
+  .bodyInner { max-height: calc(var(--card-h-tablet) - 160px); }
 }
 @media (max-width:820px) {
   .card { height: var(--card-h-mobile); max-width: 480px; }
@@ -346,6 +362,7 @@
   .roi .metrics { grid-template-columns: 1fr; }
   .roi .value { text-align: left; }
   .body-scroll { max-height: calc(var(--card-h-mobile) - 180px); }
+  .bodyInner { max-height: calc(var(--card-h-mobile) - 140px); }
 }
 
 /* Reduced motion support */
