@@ -44,12 +44,30 @@
   box-sizing: border-box;
   background: linear-gradient(180deg, #141414 0%, #0f0f0f 100%);
   backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.06);
   color: var(--text-primary, #e0e0e0);
+}
+
+/* Face interior sections */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0; /* allow inner scroll if needed */
+}
+
+.footer {
+  margin-top: auto;
 }
 
 /* Cover: symbol + text layout */
@@ -94,6 +112,12 @@
   font-size: 0.9rem;
   color: var(--text-secondary, #b0b0b0);
   line-height: 1.4;
+}
+
+/* alias for consistency with content guidance */
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted, #888888);
 }
 
 /* Outcomes, ROI and Pilot facet base */
@@ -146,6 +170,46 @@
   font-size: 0.95rem; 
   color: var(--text-primary, #e0e0e0); 
   font-weight: 600;
+}
+
+/* ROI snapshot emphasis */
+.roiSnapshot {
+  background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+  border: 1px solid var(--border-primary, rgba(255, 92, 51, 0.2));
+  border-radius: 10px;
+  padding: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.roiSnapshot .assumptions {
+  font-size: 0.85rem;
+  color: var(--text-muted, #888888);
+  line-height: 1.4;
+}
+
+.roiSnapshot .metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
+}
+
+.roiSnapshot .metric .label {
+  color: var(--text-muted, #888888);
+}
+
+.roiSnapshot .metric .value {
+  color: var(--brand-primary, #ff5c33);
+  font-size: 1.05rem;
+}
+
+.roiSnapshot .highlight {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand-accent, #ff7a33);
+  text-align: center;
+  margin-top: 6px;
 }
 
 .roiGrid {
@@ -361,22 +425,22 @@
 /* CTA */
 .cta {
   margin-top: auto;
-  background: var(--gradient-primary, linear-gradient(90deg, #ff2a5f, #ff5c33));
-  color: #fff;
+  background: var(--brand-primary, #ff5c33);
+  color: #0a0a0a;
   border: none;
-  padding: 12px 20px;
+  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   width: 100%;
-  box-shadow: 0 2px 8px rgba(255,92,51,0.3);
+  box-shadow: 0 2px 8px rgba(255,92,51,0.25);
 }
 
 .cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(255,92,51,0.35);
+  background: var(--brand-accent, #ff7a33);
+  transform: translateY(-2px);
 }
 
 .cta:focus {
@@ -398,6 +462,13 @@
 @media (max-width: 768px) {
   .card {
     height: 360px;
+  }
+  .roiSnapshot {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+  .roiSnapshot .metric .value {
+    font-size: 1rem;
   }
   
   .facet {
