@@ -113,9 +113,9 @@ export default function CubeCard({ module }) {
       <div className={styles.body}>
         {module.roiSnapshot ? (
           <div className={styles.roi}>
-            <div className={styles.roiAssumptions}>
+            <p className={styles.roiAssumptions}>
               <strong>Assumptions:</strong> {module.roiSnapshot.assumptions}
-            </div>
+            </p>
             <div className={styles.metrics}>
               <div className={styles.label}>Time saved / staff</div>
               <div className={styles.value}>{module.roiSnapshot.timeSaved}</div>
@@ -130,9 +130,9 @@ export default function CubeCard({ module }) {
           </div>
         ) : (
           <div className={styles.roi}>
-            <div className={styles.roiAssumptions}>
+            <p className={styles.roiAssumptions}>
               <strong>Assumptions:</strong> Example calculation
-            </div>
+            </p>
             <div className={styles.metrics}>
               <div className={styles.label}>Net monthly saving</div>
               <div className={styles.value}>€1,655</div>
