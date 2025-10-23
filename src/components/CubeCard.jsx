@@ -214,6 +214,8 @@ export default function CubeCard({ module }) {
 
   const faces = [frontFace, outcomesFace, roiFace, pilotFace];
 
+  const rotateY = `rotateY(${-currentFace * 90}deg)`;
+
   return (
     <div
       ref={cardRef}
