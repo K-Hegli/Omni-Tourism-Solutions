@@ -1,5 +1,26 @@
 /* Tourism Solutions Page CSS Module */
 
+/* 3D Grid Wrapper for Revolving Cards */
+.sectionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+@media (min-width: 768px) {
+  .sectionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Grid Layouts */
 .grid3up {
   display: grid;
