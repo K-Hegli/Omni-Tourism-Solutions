@@ -18,7 +18,7 @@
   transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.card.isFlipped .cardInner {
+.isFlipped .cardInner {
   transform: rotateY(180deg);
 }
 
@@ -34,12 +34,12 @@
 }
 
 /* When flipped: back visible, front hidden */
-.card.isFlipped .cardFace.front {
+.isFlipped .cardFace.front {
   visibility: hidden;
   pointer-events: none;
 }
 
-.card.isFlipped .cardFace.back {
+.isFlipped .cardFace.back {
   visibility: visible;
   pointer-events: auto;
 }
