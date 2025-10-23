@@ -5,19 +5,16 @@
   min-height: 440px;
   height: auto;
   border-radius: var(--radius-lg, 12px);
-  background: var(--gradient-card, linear-gradient(145deg, #1a1a1a, #0d0d0d));
+  background: transparent;
   box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05);
   border: 1px solid var(--border-primary, rgba(255, 92, 51, 0.25));
-  display: flex;
-  flex-direction: column;
   transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 300ms ease;
   transform-style: preserve-3d;
   will-change: transform;
-  perspective: 1200px;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: rotateY(6deg) rotateX(1.5deg);
   box-shadow: 0 12px 28px rgba(0,0,0,0.8), 0 0 14px rgba(255, 92, 51, 0.25);
 }
 
@@ -61,13 +58,13 @@
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.06);
   color: var(--text-primary, #e0e0e0);
-  transform-style: preserve-3d;
   overflow-y: auto;
 }
 
 /* Cover facet (front) */
 .cover {
   transform: rotateY(0deg);
+  justify-content: center;
 }
 
 /* Back facet (flipped) */
@@ -94,15 +91,7 @@
 }
 
 /* Cover: centered minimal layout */
-.cover {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.symbolWrap {
+.cover .symbolWrap {
   width: 52px;
   height: 52px;
   display: flex;
@@ -114,13 +103,25 @@
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}.symbol {
+  margin: 0 auto;
+}
+
+.symbol {
   color: inherit;
+}
+
+.cover .header {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .coverText {
   flex: 1;
   padding-top: 4px;
+  text-align: center;
 }
 
 .title {
