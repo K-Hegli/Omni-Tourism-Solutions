@@ -3,6 +3,7 @@ import styles from '../styles/cube-card.module.css';
 
 export default function CubeCard({ module }) {
   const [currentFace, setCurrentFace] = useState(0); // 0: front, 1: outcomes, 2: roi, 3: pilot
+  const cardRef = useRef(null);
   const innerRef = useRef(null);
 
   const nextFace = () => setCurrentFace((prev) => (prev + 1) % 4);
@@ -11,20 +12,21 @@ export default function CubeCard({ module }) {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevFace();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        nextFace();
+      // Only respond to keyboard if this card is focused
+      if (cardRef.current && cardRef.current.contains(document.activeElement)) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevFace();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextFace();
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
-
-  const rotateY = `rotateY(${-currentFace * 90}deg)`;
 
   // Face 0: Front/Cover
   const frontFace = (
@@ -214,11 +216,17 @@ export default function CubeCard({ module }) {
 
   return (
     <div
+      ref={cardRef}
       className={styles.card}
       role="group"
       aria-roledescription="3D cube card"
       aria-label={`${module.title} - Face ${currentFace + 1} of 4`}
       tabIndex={0}
+      onClick={(e) => {
+        // Don't rotate if clicking on control buttons
+        if (e.target.closest(`.${styles.controls}`)) return;
+        nextFace();
+      }}
     >
       <div
         ref={innerRef}
@@ -267,11 +275,6 @@ export default function CubeCard({ module }) {
         >
           ▶
         </button>
-      </div>
-
-      {/* Debug indicator */}
-      <div className={styles.debugIndicator}>
-        {['Front', 'Outcomes', 'ROI', 'Pilot'][currentFace]}
       </div>
     </div>
   );
