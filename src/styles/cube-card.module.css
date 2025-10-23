@@ -1,0 +1,479 @@
+/* ===========================================
+   CUBE CARD - TRUE 3D ROTATION SYSTEM
+   ===========================================
+   Four faces positioned at 0°, 90°, 180°, 270° around Y-axis
+   Uses translateZ for depth and proper 3D perspective
+*/
+
+:root {
+  /* Cube dimensions and depth */
+  --cube-width: 100%;
+  --cube-height: 460px;
+  --cube-depth: 180px; /* Distance faces extend from center */
+  --cube-perspective: 1400px;
+
+  /* Omni brand colors */
+  --brand-primary: #ff5c33;
+  --brand-secondary: #ff2a5f;
+  --brand-accent: #ff7a33;
+
+  /* Surface colors */
+  --surface-main: #1a1a1a;
+  --surface-secondary: #0d0d0d;
+  --surface-accent: #2a2a2a;
+  --border-color: rgba(255, 92, 51, 0.25);
+  --border-secondary: rgba(255, 255, 255, 0.1);
+
+  /* Text colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #888888;
+}
+
+/* Main card container */
+.card {
+  width: var(--cube-width);
+  height: var(--cube-height);
+  max-width: 420px;
+  perspective: var(--cube-perspective);
+  isolation: isolate;
+  contain: layout paint style;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* 3D Inner rotator - this spins the cube */
+.cardInner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  will-change: transform;
+  border-radius: 12px;
+}
+
+/* Individual cube faces */
+.face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header, body, footer */
+  gap: 12px;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, var(--surface-main), var(--surface-secondary));
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+/* Position faces on the cube using translateZ for depth */
+.face.front  { transform: rotateY(0deg)   translateZ(var(--cube-depth)); }
+.face.right  { transform: rotateY(90deg)  translateZ(var(--cube-depth)); }
+.face.back   { transform: rotateY(180deg) translateZ(var(--cube-depth)); }
+.face.left   { transform: rotateY(270deg) translateZ(var(--cube-depth)); }
+
+/* Face content styling */
+.faceContent {
+  display: contents; /* Let parent grid handle layout */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px; /* Consistent header height */
+}
+
+.iconWrapper {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary);
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #1e1e1e, #121212);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.icon {
+  color: inherit;
+  width: 44px;
+  height: 44px;
+}
+
+.titleSection {
+  flex: 1;
+  min-width: 0; /* Allow text to wrap */
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  border-bottom: 1px solid var(--brand-primary);
+  padding-bottom: 6px;
+}
+
+.faceTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--brand-primary);
+  padding-bottom: 6px;
+  line-height: 1.3;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 120px; /* Consistent body height */
+  overflow-y: auto;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bullet {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  padding-left: 1.2em;
+  position: relative;
+  margin: 0;
+}
+
+.bullet::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--brand-primary);
+  font-weight: bold;
+}
+
+.bulletStrong {
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+/* ROI content styling */
+.roiContent {
+  background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+  border: 1px solid rgba(255, 92, 51, 0.2);
+  border-radius: 10px;
+  padding: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.roiAssumptions {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.roiMetrics {
+  display: grid;
+  gap: 6px;
+}
+
+.roiMetric {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.metricLabel {
+  color: var(--text-muted);
+}
+
+.metricValue {
+  color: var(--brand-primary);
+  font-size: 1.05rem;
+}
+
+.roiHighlight {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand-accent);
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Pilot content */
+.pilotText {
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Footer with navigation */
+.footer {
+  border-top: 1px solid var(--border-secondary);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  min-height: 60px; /* Consistent footer height */
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-align: center;
+}
+
+/* CTA Button */
+.ctaButton {
+  margin-top: auto;
+  background: linear-gradient(90deg, #ff2a5f, #ff5c33);
+  color: #0a0a0a;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 92, 51, 0.25);
+  width: 100%;
+  max-width: 200px;
+}
+
+.ctaButton:hover {
+  background: linear-gradient(90deg, #ff5c33, #ff7a33);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 92, 51, 0.4);
+}
+
+/* Navigation dots */
+.navDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.navDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 92, 51, 0.5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navDot:hover {
+  background: rgba(255, 92, 51, 0.3);
+}
+
+.navDot.active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* External controls (below the cube) */
+.controls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.controlBtn {
+  background: transparent;
+  border: 1px solid var(--border-secondary);
+  color: var(--text-secondary);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.controlBtn:hover {
+  background: rgba(255, 92, 51, 0.08);
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #333;
+  border: 1px solid var(--border-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 92, 51, 0.3);
+  border-color: rgba(255, 92, 51, 0.5);
+}
+
+.dot.active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* Debug indicator */
+.debugIndicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--brand-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Hover effects */
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card:hover .face {
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(255, 92, 51, 0.1);
+}
+
+/* Focus styles */
+.card:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 4px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  :root {
+    --cube-height: 420px;
+    --cube-depth: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --cube-height: 380px;
+    --cube-depth: 120px;
+  }
+
+  .face {
+    padding: 16px;
+  }
+
+  .header {
+    min-height: 50px;
+  }
+
+  .body {
+    min-height: 100px;
+  }
+
+  .footer {
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --cube-height: 340px;
+    --cube-depth: 100px;
+  }
+
+  .face {
+    padding: 12px;
+  }
+
+  .title, .faceTitle {
+    font-size: 1rem;
+  }
+
+  .subtitle, .pilotText {
+    font-size: 0.85rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .cardInner {
+    transition: none;
+  }
+
+  .ctaButton {
+    transition: none;
+  }
+
+  .controlBtn, .dot, .navDot {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: rgba(255, 92, 51, 0.8);
+    --text-secondary: #ffffff;
+    --text-muted: #cccccc;
+  }
+}
+
+/* Print styles */
+@media print {
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .controls {
+    display: none;
+  }
+
+  .debugIndicator {
+    display: none;
+  }
+}

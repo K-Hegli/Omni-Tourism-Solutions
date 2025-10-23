@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
-import TestRevolvingCard from "../components/TestRevolvingCard";
+import CubeCard from "../components/CubeCard";
 import { usePageSEO } from "../hooks/usePageSEO";
 import { ServicesHeaderIcon } from "../components/ServiceIcons";
 import styles from "../styles/tourism-solutions.module.css";
@@ -192,7 +192,7 @@ export default function TourismSolutions() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <TestRevolvingCard module={module} />
+                <CubeCard module={module} />
               </motion.div>
             ))}
           </motion.div>
