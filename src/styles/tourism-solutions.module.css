@@ -28,7 +28,7 @@
 }
 
 /* wrapper keeps each card centered and controls max width */
-.card-wrapper {
+.cardWrapper {
   width: 100%;
   max-width: 560px;   /* larger card width for two-per-row layout */
   display: flex;
