@@ -30,8 +30,8 @@ export default function CubeCard({ module }) {
 
   // Face 0: Front/Cover
   const frontFace = (
-    <div className={styles.faceContent}>
-      <div className={styles.header}>
+    <div className={`${styles.face} ${styles.front}`}>
+      <header className={styles.header}>
         <div className={styles.iconWrapper}>
           <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.icon}>
             <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="2" />
@@ -46,23 +46,28 @@ export default function CubeCard({ module }) {
         </div>
         <div className={styles.titleSection}>
           <h3 className={styles.title}>{module.title}</h3>
+          <p className={styles.subtitle}>{module.oneLiner}</p>
         </div>
-      </div>
+      </header>
+
       <div className={styles.body}>
-        <p className={styles.subtitle}>{module.oneLiner}</p>
+        {/* Front face content area - can be empty or have additional content */}
       </div>
-      <div className={styles.footer}>
+
+      <footer className={styles.footer}>
         <p className={styles.hint}>Click or use arrow keys to explore</p>
-      </div>
+      </footer>
     </div>
   );
 
   // Face 1: Outcomes
   const outcomesFace = (
-    <div className={styles.faceContent}>
-      <div className={styles.header}>
-        <h3 className={styles.faceTitle}>Outcomes</h3>
-      </div>
+    <div className={`${styles.face} ${styles.right}`}>
+      <header className={styles.header}>
+        <h3 className={styles.title}>Outcomes</h3>
+        <p className={styles.subtitle}>Key benefits and results</p>
+      </header>
+
       <div className={styles.body}>
         <ul className={styles.bullets}>
           {module.bullets.slice(0, 3).map((bullet, i) => (
@@ -74,7 +79,8 @@ export default function CubeCard({ module }) {
           ))}
         </ul>
       </div>
-      <div className={styles.footer}>
+
+      <footer className={styles.footer}>
         <div className={styles.navDots}>
           <button
             className={`${styles.navDot} ${currentFace === 1 ? styles.active : ''}`}
@@ -92,58 +98,51 @@ export default function CubeCard({ module }) {
             aria-label="Pilot"
           />
         </div>
-      </div>
+      </footer>
     </div>
   );
 
   // Face 2: ROI
   const roiFace = (
-    <div className={styles.faceContent}>
-      <div className={styles.header}>
-        <h3 className={styles.faceTitle}>ROI Snapshot</h3>
-      </div>
+    <div className={`${styles.face} ${styles.back}`}>
+      <header className={styles.header}>
+        <h3 className={styles.title}>ROI Snapshot</h3>
+        <p className={styles.subtitle}>Time & value per staff</p>
+      </header>
+
       <div className={styles.body}>
         {module.roiSnapshot ? (
-          <div className={styles.roiContent}>
+          <div className={styles.roi}>
             <div className={styles.roiAssumptions}>
               <strong>Assumptions:</strong> {module.roiSnapshot.assumptions}
             </div>
-            <div className={styles.roiMetrics}>
-              <div className={styles.roiMetric}>
-                <span className={styles.metricLabel}>Time saved / staff</span>
-                <span className={styles.metricValue}>{module.roiSnapshot.timeSaved}</span>
-              </div>
-              <div className={styles.roiMetric}>
-                <span className={styles.metricLabel}>Monthly value</span>
-                <span className={styles.metricValue}>{module.roiSnapshot.monthlyValue}</span>
-              </div>
-              <div className={styles.roiMetric}>
-                <span className={styles.metricLabel}>Monthly cost</span>
-                <span className={styles.metricValue}>{module.roiSnapshot.monthlyCost}</span>
-              </div>
-              <div className={styles.roiMetric}>
-                <span className={styles.metricLabel}>Net monthly saving</span>
-                <span className={styles.metricValue}>{module.roiSnapshot.netSaving}</span>
-              </div>
+            <div className={styles.metrics}>
+              <div className={styles.label}>Time saved / staff</div>
+              <div className={styles.value}>{module.roiSnapshot.timeSaved}</div>
+              <div className={styles.label}>Monthly value</div>
+              <div className={styles.value}>{module.roiSnapshot.monthlyValue}</div>
+              <div className={styles.label}>Monthly cost</div>
+              <div className={styles.value}>{module.roiSnapshot.monthlyCost}</div>
+              <div className={styles.label}>Net monthly saving</div>
+              <div className={styles.value}>{module.roiSnapshot.netSaving}</div>
             </div>
-            <div className={styles.roiHighlight}>{module.roiSnapshot.payback}</div>
+            <div className={styles.highlight}>{module.roiSnapshot.payback}</div>
           </div>
         ) : (
-          <div className={styles.roiContent}>
+          <div className={styles.roi}>
             <div className={styles.roiAssumptions}>
               <strong>Assumptions:</strong> Example calculation
             </div>
-            <div className={styles.roiMetrics}>
-              <div className={styles.roiMetric}>
-                <span className={styles.metricLabel}>Net monthly saving</span>
-                <span className={styles.metricValue}>€1,655</span>
-              </div>
+            <div className={styles.metrics}>
+              <div className={styles.label}>Net monthly saving</div>
+              <div className={styles.value}>€1,655</div>
             </div>
-            <div className={styles.roiHighlight}>222% first-month ROI</div>
+            <div className={styles.highlight}>222% first-month ROI</div>
           </div>
         )}
       </div>
-      <div className={styles.footer}>
+
+      <footer className={styles.footer}>
         <div className={styles.navDots}>
           <button
             className={`${styles.navDot}`}
@@ -161,20 +160,23 @@ export default function CubeCard({ module }) {
             aria-label="Pilot"
           />
         </div>
-      </div>
+      </footer>
     </div>
   );
 
   // Face 3: Pilot/CTA
   const pilotFace = (
-    <div className={styles.faceContent}>
-      <div className={styles.header}>
-        <h3 className={styles.faceTitle}>Pilot Program</h3>
-      </div>
+    <div className={`${styles.face} ${styles.left}`}>
+      <header className={styles.header}>
+        <h3 className={styles.title}>Pilot Program</h3>
+        <p className={styles.subtitle}>Start your implementation journey</p>
+      </header>
+
       <div className={styles.body}>
         <p className={styles.pilotText}>{module.details}</p>
       </div>
-      <div className={styles.footer}>
+
+      <footer className={styles.footer}>
         <button
           className={styles.ctaButton}
           onClick={(e) => {
@@ -208,11 +210,9 @@ export default function CubeCard({ module }) {
             aria-label="Pilot"
           />
         </div>
-      </div>
+      </footer>
     </div>
   );
-
-  const faces = [frontFace, outcomesFace, roiFace, pilotFace];
 
   const rotateY = `rotateY(${-currentFace * 90}deg)`;
 
@@ -237,18 +237,10 @@ export default function CubeCard({ module }) {
         aria-live="polite"
         aria-atomic="true"
       >
-        <div className={`${styles.face} ${styles.front}`} aria-hidden={currentFace !== 0}>
-          {faces[0]}
-        </div>
-        <div className={`${styles.face} ${styles.right}`} aria-hidden={currentFace !== 1}>
-          {faces[1]}
-        </div>
-        <div className={`${styles.face} ${styles.back}`} aria-hidden={currentFace !== 2}>
-          {faces[2]}
-        </div>
-        <div className={`${styles.face} ${styles.left}`} aria-hidden={currentFace !== 3}>
-          {faces[3]}
-        </div>
+        {frontFace}
+        {outcomesFace}
+        {roiFace}
+        {pilotFace}
       </div>
 
       <div className={styles.controls}>

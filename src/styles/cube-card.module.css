@@ -88,17 +88,8 @@
 .face.back   { transform: rotateY(180deg) translateZ(var(--depth)); }
 .face.left   { transform: rotateY(270deg) translateZ(var(--depth)); }
 
-/* Face content styling */
-.faceContent {
-  display: contents; /* Let parent grid handle layout */
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 60px; /* Consistent header height */
-}
+/* header / typography */
+.header { display:flex; flex-direction:column; gap:6px; }
 
 .iconWrapper {
   width: 52px;
@@ -191,74 +182,18 @@
   font-weight: 600;
 }
 
-/* ROI content styling - Two-column metrics grid */
-.roiContent {
-  background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
-  border: 1px solid rgba(255, 92, 51, 0.2);
-  border-radius: 10px;
-  padding: 14px;
-  display: grid;
-  gap: 12px;
-}
+/* ROI specific: stable two-column grid that collapses */
+.roi { display:grid; gap:10px; }
+.roi .metrics { display:grid; grid-template-columns:1fr 1fr; gap:8px 12px; align-items:center; }
+.roi .label { color:var(--text-muted); font-size:0.9rem; }
+.roi .value { color:var(--primary); font-weight:700; text-align:right; font-size:clamp(1rem,1.6vw,1.15rem); }
+.roi .highlight { grid-column:1/-1; text-align:center; color:var(--accent); font-weight:800; font-size:clamp(1.05rem,1.9vw,1.3rem); }
 
-.roiAssumptions {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  margin: 0;
-}
+/* controlled overflow only when needed (wrap metrics in .body-scroll) */
+.body-scroll { max-height: calc(var(--card-h-desktop) - 200px); overflow-y:auto; padding-right:6px; }
 
-.roiMetrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 12px;
-  align-items: center;
-}
-
-.roiMetric {
-  display: contents; /* Let parent grid handle layout */
-}
-
-.metricLabel {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.metricValue {
-  color: var(--brand-primary);
-  font-weight: 700;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-  text-align: right;
-}
-
-.roiHighlight {
-  grid-column: 1 / -1; /* Span full width */
-  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
-  font-weight: 700;
-  color: var(--brand-accent);
-  text-align: center;
-  margin-top: 4px;
-}
-
-/* Pilot content */
-.pilotText {
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-/* Footer with navigation */
-.footer {
-  border-top: 1px solid var(--border-secondary);
-  padding-top: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  min-height: 60px; /* Consistent footer height */
-}
+/* footer reserved band to stabilize height */
+.footer { border-top:1px solid var(--border); padding-top:8px; display:flex; justify-content:center; gap:8px; }
 
 .hint {
   font-size: 0.8rem;
@@ -418,13 +353,15 @@
     padding: var(--pad-mobile);
   }
 
-  .roiMetrics {
+  .roi .metrics {
     grid-template-columns: 1fr; /* Stack metrics on mobile */
   }
 
-  .metricValue {
+  .roi .value {
     text-align: left; /* Left-align on mobile for single column */
   }
+
+  .body-scroll { max-height: calc(var(--card-h-mobile) - 160px); }
 }
 
 @media (max-width: 480px) {
