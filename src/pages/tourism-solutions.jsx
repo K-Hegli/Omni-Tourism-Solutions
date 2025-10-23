@@ -198,6 +198,28 @@ export default function TourismSolutions() {
             ))}
           </motion.div>
 
+          {/* Single page-level CTA */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className={styles.pageCtaWrap}
+          >
+            <button 
+              className={styles.pageCta}
+              onClick={() => {
+                const form = document.getElementById('scoping-form');
+                if (form) {
+                  form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  const first = form.querySelector('input, select, textarea, button');
+                  if (first) first.focus();
+                }
+              }}
+            >
+              Get Started with Tourism Solutions
+            </button>
+          </motion.div>
+
           {/* Instructions for interaction */}
           <motion.div 
             initial={{ opacity: 0 }}

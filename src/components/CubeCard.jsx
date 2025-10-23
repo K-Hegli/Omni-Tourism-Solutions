@@ -185,22 +185,6 @@ export default function CubeCard({ module }) {
       </div>
 
       <footer className={styles.footer}>
-        <button
-          className={styles.ctaButton}
-          onClick={(e) => {
-            e.stopPropagation();
-            const form = document.getElementById('scoping-form');
-            if (form) {
-              const select = form.querySelector('select[name="solutionInterest"]');
-              if (select) select.value = module.slug;
-              form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              const first = form.querySelector('input, select, textarea, button');
-              if (first) first.focus();
-            }
-          }}
-        >
-          {module.ctaText}
-        </button>
         <div className={styles.navDots}>
           <button
             className={`${styles.navDot}`}

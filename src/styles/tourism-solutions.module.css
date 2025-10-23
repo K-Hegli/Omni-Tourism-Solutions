@@ -37,6 +37,32 @@
   box-sizing: border-box;
 }
 
+/* Page-level CTA styling */
+.pageCtaWrap { 
+  display: flex; 
+  justify-content: center; 
+  margin-top: 32px; 
+}
+
+.pageCta {
+  background: linear-gradient(90deg, #ff2a5f, #ff5c33);
+  color: #fff; 
+  border: 0; 
+  padding: 14px 28px; 
+  border-radius: 12px; 
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(255, 92, 51, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pageCta:hover {
+  background: linear-gradient(90deg, #ff5c33, #ff7a33);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 92, 51, 0.4);
+}
+
 /* Grid Layouts */
 .grid3up {
   display: grid;
