@@ -12,6 +12,14 @@
   --cube-depth: 180px; /* Distance faces extend from center */
   --cube-perspective: 1400px;
 
+  /* Consistent sizing tokens */
+  --card-h-desktop: 460px;
+  --card-h-tablet: 420px;
+  --card-h-mobile: 380px;
+  --depth: 180px;
+  --pad-desktop: 20px;
+  --pad-mobile: 16px;
+
   /* Omni brand colors */
   --brand-primary: #ff5c33;
   --brand-secondary: #ff2a5f;
@@ -33,7 +41,7 @@
 /* Main card container */
 .card {
   width: var(--cube-width);
-  height: var(--cube-height);
+  height: var(--card-h-desktop);
   max-width: 420px;
   perspective: var(--cube-perspective);
   isolation: isolate;
@@ -62,7 +70,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto; /* header, body, footer */
   gap: 12px;
-  padding: 20px;
+  padding: var(--pad-desktop);
   border-radius: 12px;
   background: linear-gradient(145deg, var(--surface-main), var(--surface-secondary));
   box-shadow:
@@ -75,10 +83,10 @@
 }
 
 /* Position faces on the cube using translateZ for depth */
-.face.front  { transform: rotateY(0deg)   translateZ(var(--cube-depth)); }
-.face.right  { transform: rotateY(90deg)  translateZ(var(--cube-depth)); }
-.face.back   { transform: rotateY(180deg) translateZ(var(--cube-depth)); }
-.face.left   { transform: rotateY(270deg) translateZ(var(--cube-depth)); }
+.face.front  { transform: rotateY(0deg)   translateZ(var(--depth)); }
+.face.right  { transform: rotateY(90deg)  translateZ(var(--depth)); }
+.face.back   { transform: rotateY(180deg) translateZ(var(--depth)); }
+.face.left   { transform: rotateY(270deg) translateZ(var(--depth)); }
 
 /* Face content styling */
 .faceContent {
@@ -119,7 +127,7 @@
 
 .title {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   font-weight: 600;
   color: var(--text-primary);
   line-height: 1.3;
@@ -129,7 +137,7 @@
 
 .faceTitle {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   font-weight: 600;
   color: var(--text-primary);
   border-bottom: 1px solid var(--brand-primary);
@@ -141,8 +149,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 120px; /* Consistent body height */
-  overflow-y: auto;
+  min-height: 0; /* Allow flex shrinking */
+  overflow: hidden; /* Prevent unwanted scroll */
 }
 
 .subtitle {
@@ -183,50 +191,54 @@
   font-weight: 600;
 }
 
-/* ROI content styling */
+/* ROI content styling - Two-column metrics grid */
 .roiContent {
   background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
   border: 1px solid rgba(255, 92, 51, 0.2);
   border-radius: 10px;
   padding: 14px;
   display: grid;
-  gap: 8px;
+  gap: 12px;
 }
 
 .roiAssumptions {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.4;
+  margin: 0;
 }
 
 .roiMetrics {
   display: grid;
-  gap: 6px;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  align-items: center;
 }
 
 .roiMetric {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-weight: 600;
-  font-size: 0.9rem;
+  display: contents; /* Let parent grid handle layout */
 }
 
 .metricLabel {
   color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .metricValue {
   color: var(--brand-primary);
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  text-align: right;
 }
 
 .roiHighlight {
-  font-size: 1.2rem;
+  grid-column: 1 / -1; /* Span full width */
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
   font-weight: 700;
   color: var(--brand-accent);
   text-align: center;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 /* Pilot content */
@@ -391,38 +403,34 @@
 /* Responsive breakpoints */
 @media (max-width: 1024px) {
   :root {
-    --cube-height: 420px;
-    --cube-depth: 150px;
+    --card-h-desktop: 420px;
+    --depth: 150px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --cube-height: 380px;
-    --cube-depth: 120px;
+    --card-h-desktop: 380px;
+    --depth: 120px;
   }
 
   .face {
-    padding: 16px;
+    padding: var(--pad-mobile);
   }
 
-  .header {
-    min-height: 50px;
+  .roiMetrics {
+    grid-template-columns: 1fr; /* Stack metrics on mobile */
   }
 
-  .body {
-    min-height: 100px;
-  }
-
-  .footer {
-    min-height: 50px;
+  .metricValue {
+    text-align: left; /* Left-align on mobile for single column */
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --cube-height: 340px;
-    --cube-depth: 100px;
+    --card-h-desktop: 340px;
+    --depth: 100px;
   }
 
   .face {
