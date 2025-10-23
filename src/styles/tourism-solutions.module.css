@@ -3,10 +3,11 @@
 /* 3D Grid Wrapper for Revolving Cards */
 .sectionGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
   perspective: 1200px;
   perspective-origin: 50% 40%;
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
