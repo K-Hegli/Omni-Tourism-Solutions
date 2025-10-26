@@ -270,7 +270,7 @@ export default function CubeCard({ module }) {
   return (
     <div
       ref={cardRef}
-      className={styles.card}
+      className={styles.cubeCard}
       role="group"
       aria-roledescription="3D cube card"
       aria-label={`${module.title} - Face ${currentFace + 1} of 4`}

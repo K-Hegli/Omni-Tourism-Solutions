@@ -35,8 +35,8 @@
   --border: var(--border-color);
 }
 
-/* Main card container */
-.card {
+/* Main card container - renamed to avoid global .card conflicts */
+.cubeCard {
   width: 100%;
   max-width: 620px;
   height: var(--card-h-desktop) !important;
@@ -475,7 +475,7 @@
     --face-footer-h: 36px;
     --face-padding: 18px;
   }
-  .card { height: 620px !important; max-width:560px; }
+  .cubeCard { height: 620px !important; max-width:560px; }
   .face.front  { transform: rotateY(0deg)   translateZ(150px) !important; }
   .face.right  { transform: rotateY(90deg)  translateZ(150px) !important; }
   .face.back   { transform: rotateY(180deg) translateZ(150px) !important; }
@@ -487,7 +487,7 @@
     --face-footer-h: 34px;
     --face-padding: 16px;
   }
-  .card { height: var(--card-h-mobile) !important; max-width:480px; }
+  .cubeCard { height: var(--card-h-mobile) !important; max-width:480px; }
   .face.front  { transform: rotateY(0deg)   translateZ(var(--depth-mobile)) !important; }
   .face.right  { transform: rotateY(90deg)  translateZ(var(--depth-mobile)) !important; }
   .face.back   { transform: rotateY(180deg) translateZ(var(--depth-mobile)) !important; }
@@ -522,7 +522,7 @@
 
 /* Print styles */
 @media print {
-  .card {
+  .cubeCard {
     break-inside: avoid;
     page-break-inside: avoid;
   }
