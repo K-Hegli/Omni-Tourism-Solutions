@@ -32,22 +32,8 @@ export default function CubeCard({ module }) {
   const frontFace = (
     <div className={`${styles.face} ${styles.front}`}>
       <header className={styles.header}>
-        <div className={styles.iconWrapper}>
-          <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.icon}>
-            <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="2" />
-            <path d="M20 14c0-2.2 1.8-4 4-4s4 1.8 4 4c0 2.2-3.1 6.2-4 7.5-.9-1.3-4-5.3-4-7.5z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinejoin="round" />
-            <circle cx="24" cy="14" r="1.5" fill="currentColor" />
-            <g strokeWidth="2" stroke="currentColor" strokeLinecap="round">
-              <line x1="14" y1="28" x2="34" y2="28" />
-              <line x1="14" y1="32" x2="30" y2="32" />
-              <line x1="14" y1="36" x2="32" y2="36" />
-            </g>
-          </svg>
-        </div>
-        <div className={styles.titleSection}>
-          <h3 className={styles.title}>{module.title}</h3>
-          <p className={styles.subtitle}>{module.oneLiner}</p>
-        </div>
+        <h3 className={styles.title}>{module.title}</h3>
+        <p className={styles.subtitle}>{module.oneLiner}</p>
       </header>
 
       <div className={styles.body}>
@@ -244,11 +230,8 @@ export default function CubeCard({ module }) {
               <li><strong>Training:</strong> Staff onboarding and support</li>
               <li><strong>Support:</strong> 30-day implementation assistance</li>
             </ul>
+            <div className={styles.highlight}>Ready to start in 2 weeks</div>
           </section>
-          
-          <div className={styles.highlight}>
-            Ready to start in 2 weeks
-          </div>
         </div>
       </div>
 
