@@ -85,13 +85,19 @@
 /* Content wrapper - sits inside the face with padding */
 .faceContent {
   position: absolute !important;
-  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   padding: var(--face-padding) !important;
   display: flex !important;
   flex-direction: column !important;
   box-sizing: border-box !important;
-  height: 100% !important;
   overflow: hidden !important;
+  /* Force exact square containment */
+  max-width: 100% !important;
+  max-height: 100% !important;
+  margin: 0 !important;
 }
 
 /* Reduce translateZ to avoid clipping while keeping depth */
@@ -106,27 +112,56 @@
   flex-direction: column !important; 
   gap: 4px;
   flex: 0 0 auto !important;
+  height: var(--face-header-h) !important;
   max-height: var(--face-header-h) !important;
+  min-height: var(--face-header-h) !important;
   overflow: hidden !important;
-  margin-bottom: var(--gap) !important;
+  margin: 0 0 var(--gap) 0 !important;
   padding: 0 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
 }
-.title { font-size: clamp(0.95rem, 1vw, 1.1rem); line-height: 1.15; margin:0 !important; font-weight: 600; }
-.subtitle { font-size: clamp(.8rem, .85vw, .9rem); margin:0 !important; color:var(--text-muted); line-height:1.15; }
+.title { 
+  font-size: clamp(0.95rem, 1vw, 1.1rem); 
+  line-height: 1.15; 
+  margin: 0 !important; 
+  padding: 0 !important;
+  font-weight: 600; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.subtitle { 
+  font-size: clamp(.8rem, .85vw, .9rem); 
+  margin: 0 !important; 
+  padding: 0 !important;
+  color: var(--text-muted); 
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /* Body isolation: FLEX GROW - takes all remaining space */
 .body { 
-  flex: 1 1 auto !important;
+  flex: 1 1 0 !important;
   min-height: 0 !important;
+  max-height: 100% !important;
+  width: 100% !important;
   overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
   margin: 0 !important;
   padding: 0 !important;
+  box-sizing: border-box !important;
+  /* Calculate available space: total height - header - footer - gaps */
+  height: calc(100% - var(--face-header-h) - var(--face-footer-h) - calc(var(--gap) * 2)) !important;
 }
 .bodyInner {
-  flex: 1 1 auto !important;
+  flex: 1 1 0 !important;
   min-height: 0 !important;
+  max-height: 100% !important;
+  width: 100% !important;
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch;
   padding-right: 8px;
@@ -278,15 +313,18 @@
 /* Footer minimal reserve */
 .footer { 
   flex: 0 0 auto !important;
+  height: var(--face-footer-h) !important;
   min-height: var(--face-footer-h) !important;
-  padding-top: 8px; 
+  max-height: var(--face-footer-h) !important;
+  width: 100% !important;
+  padding: 8px 0 0 0 !important;
+  margin: var(--gap) 0 0 0 !important;
   border-top: 1px solid rgba(255,255,255,0.03); 
   display: flex !important; 
   justify-content: center !important; 
   align-items: center !important;
   overflow: hidden !important;
-  margin-top: var(--gap) !important;
-  margin-bottom: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .hint {
