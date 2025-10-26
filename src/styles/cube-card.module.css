@@ -3,14 +3,14 @@
 
 /* Cube dimensions and depth - optimized for content fitting */
 :root {
-  --card-h-desktop: 850px;  /* Increased from 700px to fit content without scrolling */
-  --card-h-mobile: 550px;   /* Increased from 470px */
-  --depth-desktop: 200px;   /* Increased depth for taller cards */
-  --depth-mobile: 120px;
-  --face-padding: 24px;     /* Increased padding for better content breathing */
-  --gap: 14px;              /* Increased gap */
-  --face-header-h: 64px;    /* Slightly larger header */
-  --face-footer-h: 40px;    /* Slightly larger footer */
+  --card-h-desktop: 950px;  /* Increased to 950px for more content space */
+  --card-h-mobile: 600px;   /* Increased mobile height */
+  --depth-desktop: 220px;   /* Proportional depth increase */
+  --depth-mobile: 130px;
+  --face-padding: 28px;     /* More padding for premium feel */
+  --gap: 16px;              /* Larger gap */
+  --face-header-h: 68px;    /* Larger header */
+  --face-footer-h: 44px;    /* Larger footer */
 
   /* Omni brand colors */
   --brand-primary: #ff5c33;
