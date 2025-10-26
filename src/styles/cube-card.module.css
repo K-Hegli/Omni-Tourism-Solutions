@@ -63,13 +63,12 @@
   border-radius: 12px;
 }
 
-/* Face rhythm: header | body | footer - FLEXBOX LAYOUT */
+/* Face rhythm: TWO-LAYER SYSTEM - 3D geometry + content overlay */
 .face { 
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  padding: var(--face-padding);
+  display: block;  /* Simple block, not flex */
+  padding: 0;      /* No padding on the 3D face itself */
   border-radius: 12px;
   background: linear-gradient(145deg, var(--surface-main), var(--surface-secondary));
   box-shadow:
@@ -80,6 +79,18 @@
   overflow: hidden;
   border: 1px solid var(--border-color);
   box-sizing: border-box;
+}
+
+/* Content wrapper - sits inside the face with padding */
+.faceContent {
+  position: absolute;
+  inset: 0;
+  padding: var(--face-padding);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Reduce translateZ to avoid clipping while keeping depth */
