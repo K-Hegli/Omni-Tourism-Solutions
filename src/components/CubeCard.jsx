@@ -89,21 +89,6 @@ export default function CubeCard({ module }) {
                 ))}
               </ul>
             </section>
-            
-            {module.bullets.length > 3 && (
-              <section className={styles.section}>
-                <h4 className={styles.sectionTitle}>Additional Value</h4>
-                <ul className={styles.bulletList}>
-                  {module.bullets.slice(3, 5).map((bullet, i) => (
-                    <li key={i}>
-                      <strong className={styles.bulletStrong}>
-                        {bullet.split(' — ')[0]}:
-                      </strong> {bullet.replace(/^[^—]+ — /, '')}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
           </div>
         </div>
 
@@ -237,8 +222,9 @@ export default function CubeCard({ module }) {
                 <li><strong>Training:</strong> Staff onboarding and support</li>
                 <li><strong>Support:</strong> 30-day implementation assistance</li>
               </ul>
-              <div className={styles.highlight}>Ready to start in 2 weeks</div>
             </section>
+            
+            <div className={styles.highlight}>Ready to start in 2 weeks</div>
           </div>
         </div>
 

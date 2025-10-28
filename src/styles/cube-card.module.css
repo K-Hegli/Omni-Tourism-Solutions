@@ -152,23 +152,22 @@
   flex: 1 1 0 !important;
   min-height: 0 !important;
   width: 100% !important;
-  overflow: visible !important;  /* Allow natural content flow */
-  display: grid !important;  /* Changed to grid for horizontal layout */
-  grid-template-columns: 1fr 1fr !important;  /* Two columns */
-  gap: 20px !important;  /* Space between columns */
+  overflow: visible !important;
+  display: flex !important;  /* Changed back to flex for single column */
+  flex-direction: column !important;
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box !important;
 }
 .bodyInner {
-  /* Remove bodyInner wrapping - content goes directly in body grid */
   flex: 1 1 auto !important;
   width: 100% !important;
   overflow: visible !important;
   padding: 0;
   box-sizing: border-box !important;
   margin: 0 !important;
-  display: contents !important;  /* Children become grid items */
+  display: flex !important;  /* Single column flex layout */
+  flex-direction: column !important;
 }
 
 .iconWrapper {
@@ -198,15 +197,20 @@
 
 /* REMOVE CONFLICTING DUPLICATE .body RULE */
 
-/* UNIFIED CONTENT ARCHITECTURE - Horizontal two-column layout */
+/* UNIFIED CONTENT ARCHITECTURE - Single column, clear layout */
 .section { 
-  margin-bottom: 0;  /* No bottom margin in grid */
+  margin-bottom: 14px;  /* Space between sections */
   display: flex;
   flex-direction: column;
 }
+
+.section:last-child {
+  margin-bottom: 0;  /* No margin on last section */
+}
+
 .sectionTitle { 
-  font-size: 0.92rem;  /* Larger for readability */
-  margin-bottom: 7px;
+  font-size: 0.95rem;  /* Clear, readable size */
+  margin-bottom: 8px;
   color: var(--brand-primary); 
   font-weight: 600;
   line-height: 1.2;
@@ -218,12 +222,12 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;  /* More breathing room */
+  gap: 7px;  /* Comfortable spacing */
 }
 
 .bulletList li {
-  font-size: 0.87rem;  /* Larger for readability */
-  line-height: 1.35;
+  font-size: 0.89rem;  /* Clear, readable size */
+  line-height: 1.4;
   color: var(--text-secondary);
 }
 
