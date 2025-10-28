@@ -151,25 +151,6 @@ const WhoWeAre: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Learn More?</h2>
-          <p className="text-gray-400 mb-8">
-            Discover what we can do for your business.
-          </p>
-          <Link to="/what-we-do">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#ff2a5f] to-[#ff5c33] text-white font-bold py-3 px-8 rounded-lg shadow-lg"
-            >
-              Explore Our Services
-            </motion.button>
-          </Link>
-        </div>
-      </section>
       </div>
     </>
   );

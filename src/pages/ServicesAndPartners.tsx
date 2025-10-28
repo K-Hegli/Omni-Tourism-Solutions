@@ -150,46 +150,6 @@ export default function ServicesAndPartners() {
             ))}
           </div>
         </section>
-
-        {/* CTA Section - Bridge to About You */}
-        <section className="mt-24 py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto space-y-6"
-          >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-offWhite mb-4">
-              Ready to Reflect on Your Business?
-            </h2>
-            <p className="font-body text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-              Now that you've seen what we offer, let's explore your strengths, capabilities, and growth potential.
-            </p>
-            
-            <motion.button
-              onClick={() => navigate("/about-you")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group mt-8 inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#ff2a5f] to-[#ff5c33] text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-[#ff5c33]/50 transition-all duration-300"
-            >
-              <svg 
-                className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M9 5l7 7-7 7" 
-                />
-              </svg>
-              How About You?
-            </motion.button>
-          </motion.div>
-        </section>
       </div>
     </>
   );

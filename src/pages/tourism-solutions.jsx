@@ -202,28 +202,6 @@ export default function TourismSolutions() {
             ))}
           </motion.div>
 
-          {/* Single page-level CTA */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className={styles.pageCtaWrap}
-          >
-            <button 
-              className={styles.pageCta}
-              onClick={() => {
-                const form = document.getElementById('scoping-form');
-                if (form) {
-                  form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  const first = form.querySelector('input, select, textarea, button');
-                  if (first) first.focus();
-                }
-              }}
-            >
-              Get Started with Tourism Solutions
-            </button>
-          </motion.div>
-
           {/* Instructions for interaction */}
           <motion.div 
             initial={{ opacity: 0 }}
@@ -236,98 +214,6 @@ export default function TourismSolutions() {
             </p>
           </motion.div>
         </section>
-
-        {/* Simple Contact Form */}
-        <section id="scoping-form" className="section">
-          <SectionTitle title="Get Started" />
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="card p-8">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-300 mb-2">
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      id="companyName"
-                      name="companyName"
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400
-                               focus:outline-none focus:ring-2 focus:ring-[#ff5c33]/50 focus:border-[#ff5c33] transition-colors"
-                      placeholder="Your company name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="contactEmail" className="block text-sm font-medium text-gray-300 mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="contactEmail"
-                      name="contactEmail"
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400
-                               focus:outline-none focus:ring-2 focus:ring-[#ff5c33]/50 focus:border-[#ff5c33] transition-colors"
-                      placeholder="your.email@company.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="solutionInterest" className="block text-sm font-medium text-gray-300 mb-2">
-                    Solution Interest
-                  </label>
-                  <select
-                    id="solutionInterest"
-                    name="solutionInterest"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white
-                             focus:outline-none focus:ring-2 focus:ring-[#ff5c33]/50 focus:border-[#ff5c33] transition-colors"
-                  >
-                    <option value="">Select a solution...</option>
-                    <option value="tourops">TourOps - Central Tour Operations Platform</option>
-                    <option value="booking-optimization">BookingFlow Pro - Booking Optimization</option>
-                    <option value="guest-connectivity">TravelConnect - Guest Connectivity</option>
-                    <option value="revenue-management">YieldMax - Revenue Management</option>
-                    <option value="general">General Inquiry</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400
-                             focus:outline-none focus:ring-2 focus:ring-[#ff5c33]/50 focus:border-[#ff5c33] transition-colors resize-vertical"
-                    placeholder="Tell us about your current challenges and goals..."
-                  />
-                </div>
-
-                <div className="text-center">
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-gradient-to-r from-[#ff2a5f] to-[#ff5c33] text-white font-semibold py-3 px-8 rounded-lg
-                             hover:shadow-lg hover:shadow-[#ff5c33]/25 transition-all duration-300
-                             focus:outline-none focus:ring-2 focus:ring-[#ff5c33]/50"
-                  >
-                    Request Information
-                  </motion.button>
-                </div>
-              </form>
-            </div>
-          </motion.div>
-        </section>
-
       </div>
     </>
   );

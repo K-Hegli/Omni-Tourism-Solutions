@@ -8,10 +8,10 @@ const Navigation: React.FC = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Who We Are' },
+    { path: '/', label: 'About Us' },
     { path: '/services', label: 'Business Solutions' },
     { path: '/tourism-solutions', label: 'Tourism Solutions' },
-    { path: '/about-you', label: 'Business Assessment' },
+    { path: '/about-you', label: 'About You' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
