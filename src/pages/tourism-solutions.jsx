@@ -10,15 +10,16 @@ import styles from "../styles/tourism-solutions.module.css";
 const tourismModules = [
   {
     id: 'tourops',
-    title: 'TourOps — Central Tour Operations Platform',
+    title: 'DCC Networks',
     slug: 'tourops',
-    oneLiner: 'Manage tours, bookings, guides and rostering from a single, reliable interface.',
+    oneLiner: 'One platform to manage all your tours, bookings and teams effortlessly.',
+    category: 'Software for Tour Operators',
     bullets: [
-      'Reduce manual admin — centralise inventory and replace spreadsheets',
-      'Faster confirmations — automated voucher and booking flows shorten time-to-confirmation',
-      'Scalable rostering — schedule guides, manage shifts and reduce overtime'
+      '10–30% efficiency gains — Centralize operations and eliminate manual processes',
+      'Major cost savings — Reduce overhead through automated workflows and resource optimization',
+      'Reduced human errors — Minimize mistakes with integrated booking and rostering systems'
     ],
-    impactMetric: '10–30% reduction in ops time for mid-size operators',
+    impactMetric: '10–30% efficiency gains with major cost savings',
     roiSnapshot: {
       assumptions: '5 staff; €30 hourly cost; 40 hours/week; 10% efficiency gain',
       timeSaved: '4.0 hours/week per staff',
@@ -27,43 +28,44 @@ const tourismModules = [
       netSaving: '€1,655',
       payback: '~222% first-month ROI'
     },
-    details: '2‑week Booking Audit — map one tour flow, build a booking microflow and run a voucher test. Deliverables: microflow prototype; KPI baseline; integration checklist; one‑page findings.',
-    ctaText: 'Request TourOps scoping',
-    integrationsLine: 'Integrates with PMS API; voucher generation; calendar and rostering',
+    details: '2–6 week implementation with full setup and training. Custom enterprise solutions available for scaling operations.',
+    ctaText: 'Book a Demo',
+    integrationsLine: 'Integrates with PMS, booking engines, payment systems, and rostering tools',
     microCopy: {
-      cardTitle: 'TourOps',
-      cardSubtitle: 'Central tour operations and rostering',
-      miniCTA: 'Scoping — 15 minutes',
-      trustLine: 'Typical integration 2–3 weeks; connector list shared under NDA'
+      cardTitle: 'DCC Networks',
+      cardSubtitle: 'Software for Tour Operators',
+      miniCTA: 'Try ROI Calculator',
+      trustLine: 'Book a demo and see your impact quickly with our ROI calculator'
     }
   },
   {
-    id: 'booking-optimization',
-    title: 'BookingFlow Pro',
-    slug: 'booking-optimization',
-    oneLiner: 'AI-powered reservation optimization',
+    id: 'spotty-wifi',
+    title: 'Spotty Wi‑Fi',
+    slug: 'spotty-wifi',
+    oneLiner: 'Transforms guest Wi‑Fi into marketing, reviews and customer data.',
+    category: 'Guest Wi‑Fi & Marketing Suite',
     bullets: [
-      'Conversion Rate — Increase booking completion by 32% with smart form optimization',
-      'Revenue Growth — Dynamic pricing algorithms boost average booking value',
-      'Customer Experience — Seamless multi-device booking journey'
+      'More guest reviews — Automated review requests capture feedback at the perfect moment',
+      'Rich guest profiles — Build detailed customer databases from Wi‑Fi authentication',
+      'Automated satisfaction surveys — Gather insights and improve service quality continuously'
     ],
-    impactMetric: '+32% booking conversion',
+    impactMetric: 'Increased bookings and marketing ROI via guest data segmentation',
     roiSnapshot: {
-      assumptions: '100 bookings/month; €50 avg booking; 32% conversion increase',
+      assumptions: '200 guests/month; 25% review rate; €15 cost per review alternative',
       timeSaved: 'N/A',
-      monthlyValue: '€1,600',
-      monthlyCost: '€450',
-      netSaving: '€1,150',
-      payback: '~256% first-month ROI'
+      monthlyValue: '€750',
+      monthlyCost: '€280',
+      netSaving: '€470',
+      payback: '~168% first-month ROI'
     },
-    details: '2-week pilot includes booking flow analysis, A/B testing setup, and initial optimization implementation.',
-    ctaText: 'Start Booking Optimization',
-    integrationsLine: 'Integrates with booking engines; payment processors; CRM systems',
+    details: '2–4 week implementation with full setup, onboarding and ongoing support for guest engagement optimization.',
+    ctaText: 'Request Free Demo',
+    integrationsLine: 'Integrates with review platforms, CRM systems, email marketing tools, and PMS',
     microCopy: {
-      cardTitle: 'BookingFlow Pro',
-      cardSubtitle: 'AI-powered reservations',
-      miniCTA: 'Pilot — 2 weeks',
-      trustLine: 'Quick deployment; measurable results within first month'
+      cardTitle: 'Spotty Wi‑Fi',
+      cardSubtitle: 'Guest Wi‑Fi & Marketing Suite',
+      miniCTA: 'Free Demo Available',
+      trustLine: 'Tailored pilot available to demonstrate ROI before commitment'
     }
   },
   {
