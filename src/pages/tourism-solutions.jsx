@@ -69,61 +69,63 @@ const tourismModules = [
     }
   },
   {
-    id: 'guest-connectivity',
-    title: 'TravelConnect',
-    slug: 'guest-connectivity',
-    oneLiner: 'Global connectivity solutions',
+    id: 'space-of-mind',
+    title: 'Space of Mind',
+    slug: 'space-of-mind',
+    oneLiner: 'Award-winning Nordic micro cabins and saunas built with sustainable materials.',
+    category: 'Artisan Micro Cabins',
     bullets: [
-      'Coverage — Seamless connectivity in 180+ countries worldwide',
-      'Cost Reduction — Eliminate international roaming charges for guests',
-      'Guest Satisfaction — 24/7 support in multiple languages'
+      'Authentic Nordic design — Handcrafted with attention to detail and cultural heritage',
+      'Eco-friendly materials — Sustainable sourcing for minimal environmental impact',
+      'Fast global shipping — Efficient delivery and installation worldwide'
     ],
-    impactMetric: '98% guest satisfaction',
+    impactMetric: 'Long-term asset value for hospitality properties',
     roiSnapshot: {
-      assumptions: '50 guests/month; €25 avg connectivity cost; 100% cost elimination',
+      assumptions: 'Premium cabin installation; €200/night rate; 60% occupancy',
       timeSaved: 'N/A',
-      monthlyValue: '€1,250',
-      monthlyCost: '€300',
-      netSaving: '€950',
-      payback: '~317% first-month ROI'
+      monthlyValue: '€3,600',
+      monthlyCost: '€800',
+      netSaving: '€2,800',
+      payback: 'Asset appreciation + revenue generation'
     },
-    details: '1-week pilot provides connectivity packages for test group with full analytics dashboard.',
-    ctaText: 'Test Connectivity Solutions',
-    integrationsLine: 'Integrates with PMS systems; guest management platforms',
+    details: '6–10 week delivery and installation with design consultation and production support throughout the process.',
+    ctaText: 'Book Design Meeting',
+    integrationsLine: 'Full portfolio and specifications available upon request',
     microCopy: {
-      cardTitle: 'TravelConnect',
-      cardSubtitle: 'Global connectivity',
-      miniCTA: 'Pilot — 1 week',
-      trustLine: 'Instant activation; global coverage guaranteed'
+      cardTitle: 'Space of Mind',
+      cardSubtitle: 'Artisan Micro Cabins',
+      miniCTA: 'Request Brochure',
+      trustLine: 'Book a design meeting and explore sustainable hospitality solutions'
     }
   },
   {
-    id: 'revenue-management',
-    title: 'YieldMax',
-    slug: 'revenue-management',
-    oneLiner: 'Dynamic pricing & revenue optimization',
+    id: 'welcome-dog-system',
+    title: 'Welcome Dog System',
+    slug: 'welcome-dog-system',
+    oneLiner: 'Streamlines pet bookings, amenities and guest communication for pet travelers.',
+    category: 'Pet-Friendly Guest Services',
     bullets: [
-      'Revenue Growth — Increase revenue per available room by 18%',
-      'Automation — Real-time pricing adjustments based on demand',
-      'Market Intelligence — Competitive analysis and positioning'
+      'Simplified pet bookings — Seamless reservation flow for guests traveling with pets',
+      'Automated pet profiles — Track preferences, dietary needs, and special requirements',
+      'Enhanced guest satisfaction — Personalized pet amenities increase loyalty and reviews'
     ],
-    impactMetric: '+18% revenue increase',
+    impactMetric: 'Increased ancillary revenue from pet services and higher repeat stays',
     roiSnapshot: {
-      assumptions: '100 rooms; €100 avg nightly rate; 18% revenue increase',
+      assumptions: '30 pet bookings/month; €25 avg pet fee; 40% ancillary upsells',
       timeSaved: 'N/A',
-      monthlyValue: '€5,400',
-      monthlyCost: '€800',
-      netSaving: '€4,600',
-      payback: '~575% first-month ROI'
+      monthlyValue: '€1,050',
+      monthlyCost: '€200',
+      netSaving: '€850',
+      payback: '~425% first-month ROI'
     },
-    details: '3-week pilot includes pricing strategy setup, competitor analysis, and performance tracking.',
-    ctaText: 'Optimize Revenue',
-    integrationsLine: 'Integrates with PMS systems; booking engines; market data feeds',
+    details: '1–3 week integration with full onboarding and pet-service templates to get started quickly.',
+    ctaText: 'Start Pet Services',
+    integrationsLine: 'Integrates with PMS systems, booking engines, and guest communication platforms',
     microCopy: {
-      cardTitle: 'YieldMax',
-      cardSubtitle: 'Revenue optimization',
-      miniCTA: 'Pilot — 3 weeks',
-      trustLine: 'Data-driven pricing; proven revenue increases'
+      cardTitle: 'Welcome Dog System',
+      cardSubtitle: 'Pet-Friendly Guest Services',
+      miniCTA: 'Quick Pilot Available',
+      trustLine: 'Fast pilot for select properties to demonstrate pet-friendly ROI'
     }
   }
 ];
