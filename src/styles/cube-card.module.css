@@ -11,7 +11,7 @@
   --depth-mobile: 110px;
   --face-padding: 20px;     /* Reduced since inner border adds space */
   --gap: 10px;              /* Tighter gaps */
-  --face-header-h: 72px;    /* Increased for wrapped title + subtitle */
+  --face-header-h: 88px;    /* Increased for 2-line title + 3-line subtitle */
   --face-footer-h: 34px;    /* Compact footer */
 
   /* Omni brand colors */
@@ -139,9 +139,9 @@
   word-break: break-word;
   hyphens: auto;
   
-  /* Single-line trimmed title with ellipsis */
+  /* Two-line title with ellipsis for longer titles */
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
   overflow: hidden;
@@ -163,9 +163,9 @@
   word-break: break-word;
   hyphens: auto;
   
-  /* Multi-line summary with ellipsis (3 lines for more space) */
+  /* Multi-line summary with ellipsis (2 lines) */
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
   overflow: hidden;
