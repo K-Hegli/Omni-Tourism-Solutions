@@ -61,7 +61,7 @@ const WhoWeAre: React.FC = () => {
               fontFamily: 'Cinzel, serif'
             }}
           >
-            Omni Solutions — Origin Story
+            Origin Story
           </motion.h2>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300 text-center leading-relaxed">
             Omni Solutions began when two passionate founders set out to make multilingual marketing and global operations accessible to more than just enterprise teams. What started as a hands-on duo evolved into a multidisciplinary studio and partner network focused on practical international growth.
