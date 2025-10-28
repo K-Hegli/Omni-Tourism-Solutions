@@ -263,7 +263,7 @@
 
 /* content structure enforcement */
 .face p, .face ul { margin: 0; padding: 0; }
-.face ul { list-style: none; display: grid; gap: 8px; }
+.face ul { list-style: none; }
 
 .subtitle {
   font-size: 0.9rem;
