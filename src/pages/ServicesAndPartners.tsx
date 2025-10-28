@@ -6,6 +6,7 @@ import PackageCard from "../components/PackageCard";
 import PartnerFlipCard from "../components/PartnerFlipCard";
 import SolutionCard from "../components/SolutionCard";
 import SectionTitle from "../components/SectionTitle";
+import Footer from "../components/Footer";
 import { usePageSEO } from "../hooks/useFavicon";
 import { coreServices } from "../data/services";
 import { softwareSolutions } from "../data/partners";
@@ -151,6 +152,7 @@ export default function ServicesAndPartners() {
           </div>
         </section>
       </div>
+      <Footer />
     </>
   );
 }

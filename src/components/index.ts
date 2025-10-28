@@ -1,6 +1,7 @@
 export { default as AnimatedButton } from './AnimatedButton';
 export { default as PricingCard } from './PricingCard';
 export { default as Navigation } from './Navigation';
+export { default as Footer } from './Footer';
 export { default as SliderQuestion } from './SliderQuestion';
 export { default as ToggleQuestion } from './ToggleQuestion';
 export { default as GaugeChart } from './GaugeChart';

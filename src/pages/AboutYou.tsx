@@ -5,6 +5,7 @@ import BusinessCapabilities from "../components/BusinessCapabilities";
 import ReportSection from "../components/ReportSection";
 import ReportCover from "../components/ReportCover";
 import TableOfContents from "../components/TableOfContents";
+import Footer from "../components/Footer";
 import { usePageSEO } from "../hooks/useFavicon";
 
 const AboutYou: React.FC = () => {
@@ -151,6 +152,7 @@ const AboutYou: React.FC = () => {
         </motion.div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

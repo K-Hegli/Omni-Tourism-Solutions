@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
 import CubeCard from "../components/CubeCard";
+import Footer from "../components/Footer";
 import { usePageSEO } from "../hooks/usePageSEO";
 import { ServicesHeaderIcon } from "../components/ServiceIcons";
 import styles from "../styles/tourism-solutions.module.css";
@@ -215,6 +216,7 @@ export default function TourismSolutions() {
           </motion.div>
         </section>
       </div>
+      <Footer />
     </>
   );
 }

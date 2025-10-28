@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ValueCard from '../components/ValueCard';
 import TeamMemberCard from '../components/TeamMemberCard';
 import SectionTitle from '../components/SectionTitle';
+import Footer from '../components/Footer';
 import { PunctualityIcon, HumblenessIcon, PassionIcon, GrowthInnovationIcon } from '../components/ServiceIcons';
 import { teamMembers } from '../data/team';
 import { usePageSEO } from '../hooks/usePageSEO';
@@ -60,13 +61,10 @@ const WhoWeAre: React.FC = () => {
               fontFamily: 'Cinzel, serif'
             }}
           >
-            Grow globally with multilingual<br/>
-            marketing and operations
+            Omni Solutions — Origin Story
           </motion.h2>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300 text-center leading-relaxed">
-            Omni Solutions began with two enthusiastic founders who believed that multilingual marketing and global operations shouldn't be reserved for enterprise giants. What started as a lean, hands-on duo quickly grew into a diverse team of specialists and a trusted network of partners—each bringing deep expertise in design, development, strategy, and storytelling.
-            <br className="hidden sm:block" />
-            Today, we offer a full spectrum of services that help businesses reach their full potential—from digital platforms and branding to executive coaching and international expansion.
+            Omni Solutions began when two passionate founders set out to make multilingual marketing and global operations accessible to more than just enterprise teams. What started as a hands-on duo evolved into a multidisciplinary studio and partner network focused on practical international growth.
           </p>
           <span className="block bg-[#ff5c33] h-1 w-24 mx-auto my-6 rounded-full" />
           </motion.div>
@@ -152,6 +150,7 @@ const WhoWeAre: React.FC = () => {
         </div>
       </section>
       </div>
+      <Footer />
     </>
   );
 };
