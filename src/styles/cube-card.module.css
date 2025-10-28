@@ -11,7 +11,7 @@
   --depth-mobile: 110px;
   --face-padding: 20px;     /* Reduced since inner border adds space */
   --gap: 10px;              /* Tighter gaps */
-  --face-header-h: 48px;    /* Compact header */
+  --face-header-h: 72px;    /* Increased for wrapped title + subtitle */
   --face-footer-h: 34px;    /* Compact footer */
 
   /* Omni brand colors */
@@ -115,7 +115,7 @@
 .header { 
   display: flex !important; 
   flex-direction: column !important; 
-  gap: 4px;  /* Slightly more gap */
+  gap: 6px;  /* More gap for better spacing between title and subtitle */
   flex: 0 0 auto !important;
   width: 100% !important;
   min-width: 0 !important;  /* Critical to allow children to shrink inside flexbox */
@@ -154,7 +154,7 @@
 .subtitle { 
   box-sizing: border-box;
   width: 100%;
-  margin: 6px 0 0 0 !important; 
+  margin: 0 !important;  /* Removed top margin since header has gap */
   padding: 0 !important;
   color: var(--text-muted);
   
@@ -163,9 +163,9 @@
   word-break: break-word;
   hyphens: auto;
   
-  /* Multi-line summary with ellipsis (2 lines) */
+  /* Multi-line summary with ellipsis (3 lines for more space) */
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   white-space: normal;
   overflow: hidden;
