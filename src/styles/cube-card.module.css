@@ -117,6 +117,8 @@
   flex-direction: column !important; 
   gap: 4px;  /* Slightly more gap */
   flex: 0 0 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;  /* Critical to allow children to shrink inside flexbox */
   height: var(--face-header-h) !important;
   max-height: var(--face-header-h) !important;
   min-height: var(--face-header-h) !important;
@@ -124,33 +126,61 @@
   margin: 0 0 var(--gap) 0 !important;
   padding: 0 !important;
   box-sizing: border-box !important;
-  width: 100% !important;
 }
 .title { 
-  font-size: 1.05rem;  /* Larger for readability */
-  line-height: 1.2; 
+  box-sizing: border-box;
+  width: 100%;
   margin: 0 !important; 
   padding: 0 !important;
-  font-weight: 600; 
+  font-weight: 700;
+  
+  /* Allow words to break and wrap */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  
+  /* Single-line trimmed title with ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.15;
+  
+  /* Responsive scaling for very long text */
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
 }
 .subtitle { 
-  font-size: 0.88rem;  /* Larger for readability */
-  margin: 0 !important; 
+  box-sizing: border-box;
+  width: 100%;
+  margin: 6px 0 0 0 !important; 
   padding: 0 !important;
-  color: var(--text-muted); 
-  line-height: 1.2;
+  color: var(--text-muted);
+  
+  /* Allow words to break and wrap */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  
+  /* Multi-line summary with ellipsis (2 lines) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.3;
+  
+  /* Responsive scaling for very long text */
+  font-size: clamp(0.85rem, 1.6vw, 0.88rem);
 }
 
 /* Body isolation: FLEX GROW - takes all remaining space */
 .body { 
   flex: 1 1 0 !important;
   min-height: 0 !important;
+  min-width: 0 !important;  /* Critical to allow children to shrink inside flexbox */
   width: 100% !important;
   overflow: visible !important;
   display: flex !important;  /* Changed back to flex for single column */
@@ -162,6 +192,7 @@
 .bodyInner {
   flex: 1 1 auto !important;
   width: 100% !important;
+  min-width: 0 !important;  /* Critical to allow children to shrink inside flexbox */
   overflow: visible !important;
   padding: 0;
   box-sizing: border-box !important;
@@ -202,6 +233,8 @@
   margin-bottom: 14px;  /* Space between sections */
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;  /* Critical to allow children to shrink inside flexbox */
 }
 
 .section:last-child {
