@@ -115,7 +115,7 @@
 .header { 
   display: flex !important; 
   flex-direction: column !important; 
-  gap: 3px;  /* Tighter gap */
+  gap: 4px;  /* Slightly more gap */
   flex: 0 0 auto !important;
   height: var(--face-header-h) !important;
   max-height: var(--face-header-h) !important;
@@ -127,8 +127,8 @@
   width: 100% !important;
 }
 .title { 
-  font-size: 0.95rem;  /* Compact */
-  line-height: 1.1; 
+  font-size: 1.05rem;  /* Larger for readability */
+  line-height: 1.2; 
   margin: 0 !important; 
   padding: 0 !important;
   font-weight: 600; 
@@ -137,11 +137,11 @@
   white-space: nowrap;
 }
 .subtitle { 
-  font-size: 0.78rem;  /* Compact */
+  font-size: 0.88rem;  /* Larger for readability */
   margin: 0 !important; 
   padding: 0 !important;
   color: var(--text-muted); 
-  line-height: 1.1;
+  line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -205,11 +205,11 @@
   flex-direction: column;
 }
 .sectionTitle { 
-  font-size: 0.85rem;  /* Compact */
-  margin-bottom: 6px;
+  font-size: 0.92rem;  /* Larger for readability */
+  margin-bottom: 7px;
   color: var(--brand-primary); 
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .bulletList {
@@ -218,30 +218,30 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;  /* Tight spacing */
+  gap: 6px;  /* More breathing room */
 }
 
 .bulletList li {
-  font-size: 0.80rem;  /* Compact */
-  line-height: 1.25;
+  font-size: 0.87rem;  /* Larger for readability */
+  line-height: 1.35;
   color: var(--text-secondary);
 }
 
 .metricsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 10px;  /* Increased spacing */
+  gap: 6px 10px;
   align-items: center;
 }
 
 .metricLabel {
-  font-size: 0.82rem;  /* Slightly larger */
+  font-size: 0.84rem;  /* Larger for readability */
   color: var(--text-muted);
   line-height: 1.2;
 }
 
 .metricValue {
-  font-size: 0.94rem;  /* Slightly larger */
+  font-size: 0.96rem;  /* Larger for readability */
   font-weight: bold;
   text-align: right;
   color: var(--brand-primary);
@@ -249,11 +249,11 @@
 }
 
 .highlight {
-  font-size: 1.05rem;  /* Slightly larger */
+  font-size: 1.08rem;  /* Larger for readability */
   font-weight: bold;
   color: var(--brand-secondary);
   text-align: center;
-  margin-top: 10px;  /* More space */
+  margin-top: 8px;
   line-height: 1.2;
 }
 
