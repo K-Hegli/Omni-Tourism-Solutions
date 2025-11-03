@@ -55,8 +55,9 @@
   align-items: flex-start;
   gap: 12px;
   padding-top: 8px;
-  min-height: 0;
+  min-height: 120px;
   flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 .symbolWrap {
@@ -89,6 +90,8 @@
   font-weight: 600;
   color: #08263a;
   line-height: 1.3;
+  overflow: visible;
+  white-space: normal;
 }
 
 .oneLiner {
@@ -96,6 +99,8 @@
   font-size: 0.9rem;
   color: #394a55;
   line-height: 1.4;
+  overflow: visible;
+  white-space: normal;
 }
 
 /* Outcomes, ROI and Pilot facet base */
@@ -204,10 +209,14 @@
 .pilot { transform: rotateY(270deg) translateZ(170px); }
 
 @media (max-width: 480px) {
-  .cover { transform: rotateY(0deg) translateZ(150px); }
-  .outcomes { transform: rotateY(90deg) translateZ(150px); }
-  .roi { transform: rotateY(180deg) translateZ(150px); }
-  .pilot { transform: rotateY(270deg) translateZ(150px); }
+  .cover { transform: rotateY(0deg) translateZ(140px); }
+  .outcomes { transform: rotateY(90deg) translateZ(140px); }
+  .roi { transform: rotateY(180deg) translateZ(140px); }
+  .pilot { transform: rotateY(270deg) translateZ(140px); }
+  
+  .card {
+    perspective: 800px;
+  }
 }
 
 /* Pager and accessibility */
@@ -418,13 +427,13 @@
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .card {
-    height: 420px;
+    height: 440px;
     width: 100%;
     max-width: 320px;
   }
   
   .facet {
-    padding: 16px 16px 70px 16px;
+    padding: 18px 18px 70px 18px;
   }
   
   .cover {
@@ -437,14 +446,18 @@
   }
   
   .title {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.3;
+    white-space: normal;
+    word-break: break-word;
   }
   
   .oneLiner {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.4;
     margin-top: 4px;
+    white-space: normal;
+    word-break: break-word;
   }
   
   .pager {
@@ -476,57 +489,75 @@
 
 @media (max-width: 480px) {
   .card {
-    height: 440px;
+    height: 480px;
     width: 100%;
     max-width: 300px;
     margin: 8px;
   }
   
   .facet {
-    padding: 14px 14px 60px 14px;
+    padding: 16px 16px 65px 16px;
     font-size: 13px;
   }
   
   .cover {
-    gap: 8px;
+    gap: 12px;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+    padding-top: 4px;
+    min-height: 160px;
+    overflow: visible;
   }
   
   .symbolWrap {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+    align-self: center;
   }
   
   .coverText {
     width: 100%;
+    flex: 1;
   }
   
   .title {
-    font-size: 0.95rem;
-    line-height: 1.2;
-    margin-bottom: 6px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
   }
   
   .oneLiner {
-    font-size: 0.8rem;
-    line-height: 1.3;
+    font-size: 0.75rem;
+    line-height: 1.4;
     margin-top: 0;
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  .pager {
+    bottom: 8px;
+    left: 12px;
+    right: 12px;
   }
   
   .pagerBtn {
-    font-size: 16px;
+    font-size: 14px;
     padding: 4px 6px;
   }
   
   .dots {
-    gap: 4px;
+    gap: 3px;
   }
   
   .dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
   
   .roiGrid {
