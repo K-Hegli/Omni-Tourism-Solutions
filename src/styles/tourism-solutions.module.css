@@ -1,38 +1,46 @@
 /* Tourism Solutions Page CSS Module */
 
-/* Grid: allow two large columns but let them grow if space permits */
+/* Grid: responsive layout for tourism solution cards */
 .sectionGrid {
   display: grid;
-  gap: 40px 32px;
+  gap: 32px 24px;
   justify-items: center;
   align-items: start;
-  grid-template-columns: repeat(auto-fit, minmax(680px, 1fr));  /* Wider cards */
-  max-width: 1600px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
-@media (max-width:1400px) {
+@media (max-width: 768px) {
   .sectionGrid { 
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-    gap: 32px 26px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 12px;
   }
 }
-@media (max-width:820px) {
+
+@media (max-width: 480px) {
   .sectionGrid { 
-    grid-template-columns: 1fr; 
-    padding: 16px; 
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 8px;
   }
 }
 
 /* wrapper keeps each card centered and controls max width */
 .cardWrapper {
   width: 100%;
-  max-width: 560px;   /* larger card width for two-per-row layout */
+  max-width: 320px;
   display: flex;
   justify-content: center;
-  padding: 0 12px;
   box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .cardWrapper {
+    max-width: 300px;
+  }
 }
 
 /* Page-level CTA styling */
