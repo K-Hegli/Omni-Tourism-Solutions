@@ -142,6 +142,7 @@
   /* Two-line title with ellipsis for longer titles */
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
   overflow: hidden;
@@ -166,6 +167,7 @@
   /* Multi-line summary with ellipsis (2 lines) */
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
   overflow: hidden;
@@ -534,10 +536,10 @@
   :root {
     --card-h-desktop: var(--card-h-mobile);
     --card-w-desktop: var(--card-w-mobile);
-    --face-header-h: 48px;
+    --face-header-h: 60px;
     --face-footer-h: 32px;
-    --face-padding: 18px;
-    --gap: 10px;
+    --face-padding: 20px;
+    --gap: 12px;
   }
   .cubeCard { 
     height: var(--card-h-mobile) !important;
@@ -558,6 +560,52 @@
   .roi .value { text-align: left; }
   .section { margin-bottom: 0; }
   .bulletList { gap: 5px; }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --card-h-mobile: 480px;
+    --card-w-mobile: 320px;
+    --face-header-h: 80px;
+    --face-footer-h: 28px;
+    --face-padding: 16px;
+    --gap: 8px;
+  }
+  
+  .cubeCard {
+    height: var(--card-h-mobile) !important;
+    width: var(--card-w-mobile) !important;
+    max-width: 95vw !important;
+  }
+  
+  .faceContent {
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+  }
+  
+  .header {
+    min-height: 80px;
+    padding-bottom: 12px;
+  }
+  
+  .title {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 6px !important;
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+    max-height: none !important;
+  }
+  
+  .subtitle {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+    max-height: none !important;
+  }
 }
 
 /* Reduced motion support */

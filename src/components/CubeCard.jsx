@@ -59,9 +59,7 @@ export default function CubeCard({ module }) {
           </div>
         </div>
 
-        <footer className={styles.footer}>
-          <p className={styles.hint}>Click or use arrow keys to explore</p>
-        </footer>
+
       </div>
     </div>
   );

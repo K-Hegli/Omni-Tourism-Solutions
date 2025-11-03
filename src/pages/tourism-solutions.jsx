@@ -203,17 +203,6 @@ export default function TourismSolutions() {
             ))}
           </motion.div>
 
-          {/* Instructions for interaction */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center"
-          >
-            <p className="text-gray-400 text-sm">
-              Click cards to rotate through features • Use arrow keys or dots to navigate
-            </p>
-          </motion.div>
         </section>
       </div>
       <Footer />
