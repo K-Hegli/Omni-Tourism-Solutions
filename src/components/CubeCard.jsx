@@ -205,20 +205,11 @@ export default function CubeCard({ module }) {
         <div className={styles.body}>
           <div className={styles.bodyInner}>
             <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Implementation Path</h4>
+              <h4 className={styles.sectionTitle}>Quick Start</h4>
               <ul className={styles.bulletList}>
-                <li><strong>Week 1-2:</strong> Setup and configuration</li>
-                <li><strong>Week 3-4:</strong> Staff training and testing</li>
-                <li><strong>Week 5-6:</strong> Go-live and optimization</li>
-              </ul>
-            </section>
-            
-            <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>What's Included</h4>
-              <ul className={styles.bulletList}>
-                <li><strong>Full setup:</strong> Complete system configuration</li>
-                <li><strong>Training:</strong> Staff onboarding and support</li>
-                <li><strong>Support:</strong> 30-day implementation assistance</li>
+                <li><strong>Setup:</strong> 2-week configuration</li>
+                <li><strong>Training:</strong> Staff onboarding included</li>
+                <li><strong>Support:</strong> 30-day assistance</li>
               </ul>
             </section>
             
