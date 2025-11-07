@@ -104,11 +104,7 @@ const ContactDropdown: React.FC = () => {
             {/* Contact Options - Two Aligned Buttons */}
             <div className="p-8">
               <div className="flex flex-col sm:flex-row gap-4">
-                <motion.button
-                  onClick={() => {
-                    navigator.clipboard.writeText('operations@omnisolutions.fi');
-                    setIsOpen(false);
-                  }}
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex-1 bg-gradient-to-r from-gray-800 to-gray-900 border-2 border-gray-700 hover:border-[#ff5c33]/60 text-offWhite font-bold py-4 px-5 rounded-lg transition-all duration-300 text-center shadow-lg hover:shadow-[#ff5c33]/20"
@@ -116,11 +112,11 @@ const ContactDropdown: React.FC = () => {
                   <span className="block mb-2 text-2xl">✉</span>
                   <span className="text-sm">Email Us</span>
                   <span className="block text-xs mt-1 font-normal opacity-90">
-                    operations@omnisolutions.fi
+                    sami@omnisolutions.fi
                   </span>
-                </motion.button>
+                </motion.div>
                 <motion.a
-                  href="https://wa.me/358406804952"
+                  href="https://wa.me/358400723024"
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -129,7 +125,7 @@ const ContactDropdown: React.FC = () => {
                   <span className="block mb-2 text-2xl">💬</span>
                   <span className="text-sm">WhatsApp</span>
                   <span className="block text-xs mt-1 font-normal opacity-90">
-                    +358 406804952
+                    +358 40 0723024
                   </span>
                 </motion.a>
               </div>

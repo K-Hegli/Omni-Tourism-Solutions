@@ -564,12 +564,12 @@
 
 @media (max-width: 480px) {
   :root {
-    --card-h-mobile: 480px;
-    --card-w-mobile: 320px;
-    --face-header-h: 80px;
+    --card-h-mobile: 520px;
+    --card-w-mobile: 340px;
+    --face-header-h: 120px;
     --face-footer-h: 28px;
-    --face-padding: 16px;
-    --gap: 8px;
+    --face-padding: 20px;
+    --gap: 12px;
   }
   
   .cubeCard {
@@ -579,32 +579,60 @@
   }
   
   .faceContent {
-    top: 8px !important;
-    left: 8px !important;
-    right: 8px !important;
-    bottom: 8px !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
   }
   
   .header {
-    min-height: 80px;
-    padding-bottom: 12px;
+    min-height: 120px !important;
+    height: auto !important;
+    max-height: none !important;
+    padding-bottom: 16px !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .faceContent {
+    overflow: visible !important;
   }
   
   .title {
-    font-size: 0.85rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 6px !important;
-    -webkit-line-clamp: 3 !important;
-    line-clamp: 3 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
     max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+    white-space: normal !important;
+    text-overflow: unset !important;
   }
   
   .subtitle {
-    font-size: 0.75rem !important;
-    line-height: 1.4 !important;
-    -webkit-line-clamp: 3 !important;
-    line-clamp: 3 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
     max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+    white-space: normal !important;
+    text-overflow: unset !important;
+  }
+  
+  /* Mobile 3D transforms with reduced depth for better text rendering */
+  .face.front  { transform: rotateY(0deg)   translateZ(80px) !important; }
+  .face.right  { transform: rotateY(90deg)  translateZ(80px) !important; }
+  .face.back   { transform: rotateY(180deg) translateZ(80px) !important; }
+  .face.left   { transform: rotateY(270deg) translateZ(80px) !important; }
+  
+  .cubeCard {
+    perspective: 800px !important;
   }
 }
 

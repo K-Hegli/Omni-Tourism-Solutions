@@ -23,8 +23,9 @@
 @media (max-width: 480px) {
   .sectionGrid { 
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 0 8px;
+    gap: 20px;
+    padding: 0 4px;
+    max-width: 100%;
   }
 }
 
@@ -39,7 +40,8 @@
 
 @media (max-width: 480px) {
   .cardWrapper {
-    max-width: 300px;
+    max-width: 340px;
+    width: 100%;
   }
 }
 
