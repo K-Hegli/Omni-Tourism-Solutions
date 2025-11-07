@@ -56,6 +56,8 @@ export default function CubeCard({ module }) {
                 <li><strong>Pilot:</strong> Implementation roadmap</li>
               </ul>
             </section>
+            
+            <div className={styles.highlight}>Click to rotate and explore →</div>
           </div>
         </div>
 
