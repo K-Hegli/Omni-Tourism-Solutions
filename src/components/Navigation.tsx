@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ContactDropdown from './ContactDropdown';
+import LanguageSelector from './LanguageSelector';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navItems = [
-    { path: '/', label: 'About Us' },
-    { path: '/services', label: 'Business Solutions' },
-    { path: '/tourism-solutions', label: 'Tourism Solutions' },
-    { path: '/about-you', label: 'About You' },
+    { path: '/', label: t('nav.about') },
+    { path: '/services', label: t('nav.business') },
+    { path: '/tourism-solutions', label: t('nav.tourism') },
+    { path: '/about-you', label: t('nav.aboutYou') },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -23,11 +26,11 @@ const Navigation: React.FC = () => {
         <div className="hidden md:flex items-center justify-between h-16">
           {/* Left: Logo */}
           <Link to="/" className="flex items-center">
-            <span className="font-heading gradient-text text-2xl font-bold">Omni Solutions</span>
+            <span className="font-heading gradient-text text-2xl font-bold">{t('general.omniSolutions')}</span>
           </Link>
 
-          {/* Right: Navigation Links + Contact Us */}
-          <div className="flex items-center space-x-8">
+          {/* Right: Navigation Links + Language + Contact Us */}
+          <div className="flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -48,6 +51,8 @@ const Navigation: React.FC = () => {
                 )}
               </Link>
             ))}
+            {/* Language Selector */}
+            <LanguageSelector />
             {/* Positioning context for dropdown */}
             <div className="relative">
               <ContactDropdown />
@@ -59,7 +64,7 @@ const Navigation: React.FC = () => {
         <div className="md:hidden flex items-center justify-between h-16">
           {/* Left: Logo */}
           <Link to="/" className="flex items-center">
-            <span className="font-heading gradient-text text-2xl font-bold">Omni Solutions</span>
+            <span className="font-heading gradient-text text-2xl font-bold">{t('general.omniSolutions')}</span>
           </Link>
 
           {/* Mobile Menu Button */}
@@ -107,7 +112,8 @@ const Navigation: React.FC = () => {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-4 px-5">
+            <div className="mt-4 px-5 space-y-4">
+              <LanguageSelector />
               <ContactDropdown />
             </div>
           </motion.div>

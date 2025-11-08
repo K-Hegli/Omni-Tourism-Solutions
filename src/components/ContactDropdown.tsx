@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../hooks/useLanguage';
 
 const ContactDropdown: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -45,7 +47,7 @@ const ContactDropdown: React.FC = () => {
           isOpen ? 'shadow-lg shadow-[#ff5c33]/50' : ''
         }`}
       >
-        Contact Us
+        {t('nav.contact')}
       </motion.button>
 
       {/* Dropdown Accordion */}
@@ -96,8 +98,8 @@ const ContactDropdown: React.FC = () => {
             {/* Header */}
             <div className="bg-gradient-to-r from-[#ff2a5f]/10 to-[#ff5c33]/10 p-8 border-b border-[#ff5c33]/20">
               <h3 className="font-heading text-xl text-offWhite font-bold text-center leading-tight">
-                Your best partner<br />
-                <span className="text-[#ff5c33]">is just one call away</span>
+                {t('contact.title')}<br />
+                <span className="text-[#ff5c33]">{t('contact.subtitle')}</span>
               </h3>
             </div>
 
@@ -110,7 +112,7 @@ const ContactDropdown: React.FC = () => {
                   className="flex-1 bg-gradient-to-r from-gray-800 to-gray-900 border-2 border-gray-700 hover:border-[#ff5c33]/60 text-offWhite font-bold py-4 px-5 rounded-lg transition-all duration-300 text-center shadow-lg hover:shadow-[#ff5c33]/20"
                 >
                   <span className="block mb-2 text-2xl">✉</span>
-                  <span className="text-sm">Email Us</span>
+                  <span className="text-sm">{t('contact.email')}</span>
                   <span className="block text-xs mt-1 font-normal opacity-90">
                     sami@omnisolutions.fi
                   </span>
@@ -123,7 +125,7 @@ const ContactDropdown: React.FC = () => {
                   className="flex-1 bg-gradient-to-r from-[#ff2a5f] to-[#ff5c33] text-white font-bold py-4 px-5 rounded-lg transition-all duration-300 text-center shadow-lg hover:shadow-[#ff5c33]/50"
                 >
                   <span className="block mb-2 text-2xl">💬</span>
-                  <span className="text-sm">WhatsApp</span>
+                  <span className="text-sm">{t('contact.whatsapp')}</span>
                   <span className="block text-xs mt-1 font-normal opacity-90">
                     +358 40 0723024
                   </span>
@@ -134,7 +136,7 @@ const ContactDropdown: React.FC = () => {
             {/* Exclusivity Footer */}
             <div className="bg-black/40 backdrop-blur-sm px-8 py-5 border-t border-[#ff5c33]/10">
               <p className="text-sm text-gray-400 leading-relaxed text-center">
-                Can't be impactful if you don't grow.
+                {t('contact.footer')}
               </p>
             </div>
             </div>
