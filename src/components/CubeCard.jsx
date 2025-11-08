@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/cube-card.module.css';
+import { useLanguage } from '../hooks/useLanguage';
 
 export default function CubeCard({ module }) {
   const [currentFace, setCurrentFace] = useState(0); // 0: front, 1: outcomes, 2: roi, 3: pilot
   const cardRef = useRef(null);
   const innerRef = useRef(null);
+  const { t } = useLanguage();
 
   const nextFace = () => setCurrentFace((prev) => (prev + 1) % 4);
   const prevFace = () => setCurrentFace((prev) => (prev + 3) % 4);
@@ -40,24 +42,24 @@ export default function CubeCard({ module }) {
         <div className={styles.body}>
           <div className={styles.bodyInner}>
             <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Solution Overview</h4>
+              <h4 className={styles.sectionTitle}>{t('cube.overview.title')}</h4>
               <ul className={styles.bulletList}>
-                <li><strong>Focus:</strong> {module.category || 'Tourism operations'}</li>
-                <li><strong>Timeline:</strong> 2-6 week implementation</li>
-                <li><strong>Support:</strong> Full setup and training included</li>
+                <li><strong>{t('cube.overview.focus')}:</strong> {module.category || t('cube.overview.focusValue')}</li>
+                <li><strong>{t('cube.overview.timeline')}:</strong> {t('cube.overview.timelineValue')}</li>
+                <li><strong>{t('cube.overview.support')}:</strong> {t('cube.overview.supportValue')}</li>
               </ul>
             </section>
             
             <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Explore This Module</h4>
+              <h4 className={styles.sectionTitle}>{t('cube.explore.title')}</h4>
               <ul className={styles.bulletList}>
-                <li><strong>Outcomes:</strong> Key benefits and results</li>
-                <li><strong>ROI:</strong> Financial impact snapshot</li>
-                <li><strong>Pilot:</strong> Implementation roadmap</li>
+                <li><strong>{t('cube.outcomes.title')}:</strong> {t('cube.explore.outcomes')}</li>
+                <li><strong>ROI:</strong> {t('cube.explore.roi')}</li>
+                <li><strong>{t('cube.pilot.title')}:</strong> {t('cube.explore.pilot')}</li>
               </ul>
             </section>
             
-            <div className={styles.highlight}>Click to rotate and explore →</div>
+            <div className={styles.highlight}>{t('cube.explore.cta')}</div>
           </div>
         </div>
 
@@ -71,14 +73,14 @@ export default function CubeCard({ module }) {
     <div className={`${styles.face} ${styles.right}`}>
       <div className={styles.faceContent}>
         <header className={styles.header}>
-          <h3 className={styles.title}>Outcomes</h3>
-          <p className={styles.subtitle}>Key benefits and results</p>
+          <h3 className={styles.title}>{t('cube.outcomes.title')}</h3>
+          <p className={styles.subtitle}>{t('cube.outcomes.subtitle')}</p>
         </header>
 
         <div className={styles.body}>
           <div className={styles.bodyInner}>
             <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Key Benefits</h4>
+              <h4 className={styles.sectionTitle}>{t('cube.outcomes.sectionTitle')}</h4>
               <ul className={styles.bulletList}>
                 {module.bullets.slice(0, 3).map((bullet, i) => (
                   <li key={i}>
@@ -120,8 +122,8 @@ export default function CubeCard({ module }) {
     <div className={`${styles.face} ${styles.back}`}>
       <div className={styles.faceContent}>
         <header className={styles.header}>
-          <h3 className={styles.title}>ROI Snapshot</h3>
-          <p className={styles.subtitle}>Time & value per staff</p>
+          <h3 className={styles.title}>{t('cube.roi.title')}</h3>
+          <p className={styles.subtitle}>{t('cube.roi.subtitle')}</p>
         </header>
 
         <div className={styles.body}>
@@ -129,22 +131,22 @@ export default function CubeCard({ module }) {
             {module.roiSnapshot ? (
               <>
                 <section className={styles.section}>
-                  <h4 className={styles.sectionTitle}>Assumptions</h4>
+                  <h4 className={styles.sectionTitle}>{t('cube.roi.assumptions')}</h4>
                   <p style={{ fontSize: '0.85rem', lineHeight: '1.3', color: 'var(--text-muted)' }}>
                     {module.roiSnapshot.assumptions}
                   </p>
                 </section>
                 
                 <section className={styles.section}>
-                  <h4 className={styles.sectionTitle}>Monthly Impact</h4>
+                  <h4 className={styles.sectionTitle}>{t('cube.roi.monthlyImpact')}</h4>
                   <div className={styles.metricsGrid}>
-                    <div className={styles.metricLabel}>Time saved / staff</div>
+                    <div className={styles.metricLabel}>{t('cube.roi.timeSaved')}</div>
                     <div className={styles.metricValue}>{module.roiSnapshot.timeSaved}</div>
-                    <div className={styles.metricLabel}>Monthly value</div>
+                    <div className={styles.metricLabel}>{t('cube.roi.monthlyValue')}</div>
                     <div className={styles.metricValue}>{module.roiSnapshot.monthlyValue}</div>
-                    <div className={styles.metricLabel}>Monthly cost</div>
+                    <div className={styles.metricLabel}>{t('cube.roi.monthlyCost')}</div>
                     <div className={styles.metricValue}>{module.roiSnapshot.monthlyCost}</div>
-                    <div className={styles.metricLabel}>Net saving</div>
+                    <div className={styles.metricLabel}>{t('cube.roi.netSaving')}</div>
                     <div className={styles.metricValue}>{module.roiSnapshot.netSaving}</div>
                   </div>
                   <div className={styles.highlight}>{module.roiSnapshot.payback}</div>
@@ -200,22 +202,22 @@ export default function CubeCard({ module }) {
     <div className={`${styles.face} ${styles.left}`}>
       <div className={styles.faceContent}>
         <header className={styles.header}>
-          <h3 className={styles.title}>Pilot Program</h3>
-          <p className={styles.subtitle}>Start your implementation journey</p>
+          <h3 className={styles.title}>{t('cube.pilot.title')}</h3>
+          <p className={styles.subtitle}>{t('cube.pilot.subtitle')}</p>
         </header>
 
         <div className={styles.body}>
           <div className={styles.bodyInner}>
             <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Quick Start</h4>
+              <h4 className={styles.sectionTitle}>{t('cube.pilot.quickStart')}</h4>
               <ul className={styles.bulletList}>
-                <li><strong>Setup:</strong> 2-week configuration</li>
-                <li><strong>Training:</strong> Staff onboarding included</li>
-                <li><strong>Support:</strong> 30-day assistance</li>
+                <li><strong>{t('cube.pilot.setup')}:</strong> {t('cube.pilot.setupValue')}</li>
+                <li><strong>{t('cube.pilot.training')}:</strong> {t('cube.pilot.trainingValue')}</li>
+                <li><strong>{t('cube.pilot.support')}:</strong> {t('cube.pilot.supportValue')}</li>
               </ul>
             </section>
             
-            <div className={styles.highlight}>Ready to start in 2 weeks</div>
+            <div className={styles.highlight}>{t('cube.pilot.ready')}</div>
           </div>
         </div>
 

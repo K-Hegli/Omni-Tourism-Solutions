@@ -4,6 +4,7 @@ import SectionTitle from "../components/SectionTitle";
 import CubeCard from "../components/CubeCard";
 import Footer from "../components/Footer";
 import { usePageSEO } from "../hooks/usePageSEO";
+import { useLanguage } from "../hooks/useLanguage";
 import { ServicesHeaderIcon } from "../components/ServiceIcons";
 import styles from "../styles/tourism-solutions.module.css";
 
@@ -132,6 +133,7 @@ const tourismModules = [
 ];
 
 export default function TourismSolutions() {
+  const { t } = useLanguage();
   // Set page-specific SEO
   usePageSEO({
     title: 'Tourism Solutions — Partner Technology for Tour Operators and Facilities',
@@ -161,7 +163,7 @@ export default function TourismSolutions() {
                 fontFamily: 'Cinzel, serif'
               }}
             >
-              Tourism Solutions
+              {t('tourism.hero.title')}
             </motion.h1>
             <span className="block bg-[#ff5c33] h-1 w-24 mx-auto my-6 rounded-full" />
             <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto font-medium leading-relaxed tracking-wide"
@@ -169,7 +171,7 @@ export default function TourismSolutions() {
                  textShadow: '0 0 20px rgba(255, 255, 255, 0.1)',
                  fontFamily: 'Inter, sans-serif'
                }}>
-              Innovative solutions and technology partners for tour operators and facilities.
+              {t('tourism.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -180,7 +182,7 @@ export default function TourismSolutions() {
         {/* Tourism Solutions Grid */}
         <section id="tourism-solutions" className="section">
           <SectionTitle 
-            title="Tourism Solutions" 
+            title={t('tourism.hero.title')} 
             icon={ServicesHeaderIcon}
           />
           
