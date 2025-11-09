@@ -50,6 +50,30 @@ const translations = {
     'values.growth.title': 'Growth & Innovation',
     'values.growth.description': 'Stagnation is the first step towards failure. You can\'t be impactful if you don\'t grow, you can\'t drive change without innovating.',
     
+    // Team Members
+    'team.nastja.name': 'Nastja',
+    'team.nastja.punchline': 'I hit my target in sports & marketing',
+    'team.nastja.bio': 'Marketing specialist with a Bachelor\'s degree, 9k social followers, and Finnish sports shooting champion. Skilled in sales, design, and content creation.',
+    'team.mirjam.name': 'Mirjam', 
+    'team.mirjam.punchline': 'The \'Social Junkie\' from Sweden',
+    'team.mirjam.bio': 'Swedish strategist who grew WaterAid\'s social media by 300%. Expert in advertising optimization, passionate about running, Fika, and networking.',
+    'team.ahsan.name': 'Ahsan',
+    'team.ahsan.punchline': 'Learning the hard things is what sets you apart',
+    'team.ahsan.bio': 'Digital marketer with 5+ years\' experience. Master\'s in Sustainability. Led UAE campaign with 1200% ROAS. Loves fitness, cars, and swimming.',
+    'team.mariia.name': 'Mariia',
+    'team.mariia.punchline': 'From scratch to success',
+    'team.mariia.bio': 'UI/UX designer and ex-IT project manager. Built 30+ websites. Ballet dancer for 20+ years, now teaching kids to dance and dream big.',
+    'team.kaled.name': 'Kaled',
+    'team.kaled.punchline': 'Life is a canvas',
+    'team.kaled.bio': 'Founder & COO. Italian in Finland. Expert in Sales, Ops, and Tech. Speaks six languages, sings in choir, practices martial arts.',
+    'team.aaron.name': 'Aaron',
+    'team.aaron.punchline': 'My favorite word is ROI',
+    'team.aaron.bio': 'Founder & CEO. Englishman from Sipoo. Expert in Sales, Strategy, and Management. Enjoys boxing, reading, music, and guitar.',
+    
+    // Team UI
+    'team.clickToRead': '(Click to read bio)',
+    'team.clickToFlip': '(Click anywhere to flip back)',
+    
     // Tourism Solutions Page
     'tourism.hero.title': 'Tourism Solutions',
     'tourism.hero.subtitle': 'Innovative solutions and technology partners for tour operators and facilities.',
@@ -142,6 +166,30 @@ const translations = {
     'values.passion.description': 'Siamo guidati dalla passione per quello che facciamo e definiti dalla nostra capacità di portare a termine le cose.',
     'values.growth.title': 'Crescita e Innovazione', 
     'values.growth.description': 'La stagnazione è il primo passo verso il fallimento. Non puoi avere impatto se non cresci, non puoi guidare il cambiamento senza innovare.',
+    
+    // Team Members
+    'team.nastja.name': 'Nastja',
+    'team.nastja.punchline': 'Colpisco sempre il bersaglio nello sport e nel marketing',
+    'team.nastja.bio': 'Specialista di marketing con laurea, 9k follower sui social e campionessa finlandese di tiro sportivo. Abile in vendite, design e creazione di contenuti.',
+    'team.mirjam.name': 'Mirjam',
+    'team.mirjam.punchline': 'La \'Social Junkie\' dalla Svezia',
+    'team.mirjam.bio': 'Stratega svedese che ha aumentato i social media di WaterAid del 300%. Esperta in ottimizzazione pubblicitaria, appassionata di corsa, Fika e networking.',
+    'team.ahsan.name': 'Ahsan',
+    'team.ahsan.punchline': 'Imparare le cose difficili è ciò che ti distingue',
+    'team.ahsan.bio': 'Digital marketer con oltre 5 anni di esperienza. Master in Sostenibilità. Ha guidato una campagna negli Emirati con ROAS del 1200%. Ama fitness, auto e nuoto.',
+    'team.mariia.name': 'Mariia',
+    'team.mariia.punchline': 'Da zero al successo',
+    'team.mariia.bio': 'Designer UI/UX ed ex project manager IT. Ha costruito oltre 30 siti web. Ballerina da oltre 20 anni, ora insegna ai bambini a danzare e sognare in grande.',
+    'team.kaled.name': 'Kaled',
+    'team.kaled.punchline': 'La vita è una tela',
+    'team.kaled.bio': 'Fondatore e COO. Italiano in Finlandia. Esperto in Vendite, Operazioni e Tecnologia. Parla sei lingue, canta nel coro, pratica arti marziali.',
+    'team.aaron.name': 'Aaron',
+    'team.aaron.punchline': 'La mia parola preferita è ROI',
+    'team.aaron.bio': 'Fondatore e CEO. Inglese di Sipoo. Esperto in Vendite, Strategia e Management. Ama boxe, lettura, musica e chitarra.',
+    
+    // Team UI
+    'team.clickToRead': '(Clicca per leggere la biografia)',
+    'team.clickToFlip': '(Clicca ovunque per girare)',
     
     // Tourism Solutions Page
     'tourism.hero.title': 'Soluzioni Turistiche',

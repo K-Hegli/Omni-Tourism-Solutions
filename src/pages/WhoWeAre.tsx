@@ -96,9 +96,7 @@ const WhoWeAre: React.FC = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <TeamMemberCard
-                  name={member.name}
-                  punchline={member.punchline}
-                  bio={member.bio}
+                  keyName={member.key}
                   image={member.image}
                   imagePlaceholder={member.imagePlaceholder}
                 />
@@ -117,9 +115,7 @@ const WhoWeAre: React.FC = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <TeamMemberCard
-                  name={member.name}
-                  punchline={member.punchline}
-                  bio={member.bio}
+                  keyName={member.key}
                   image={member.image}
                   imagePlaceholder={member.imagePlaceholder}
                 />

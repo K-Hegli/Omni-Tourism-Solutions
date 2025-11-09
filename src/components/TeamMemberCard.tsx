@@ -1,20 +1,18 @@
 import React, { useState } from "react";
+import { useLanguage } from "../hooks/useLanguage";
 
 interface TeamMemberCardProps {
-  name: string;
-  punchline: string;
-  bio: string;
+  keyName: string; // Translation key for the team member
   image?: string; // Path to team member photo
   imagePlaceholder?: string; // Fallback initials if no image
 }
 
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
-  name,
-  punchline,
-  bio,
+  keyName,
   image,
   imagePlaceholder = "TM",
 }) => {
+  const { t } = useLanguage();
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -42,7 +40,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
             {image ? (
               <img
                 src={image}
-                alt={name}
+                alt={t(`team.${keyName}.name` as any)}
                 className="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-[#ff5c33]"
               />
             ) : (
@@ -53,17 +51,17 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 
             {/* Name */}
             <h3 className="font-heading text-2xl font-bold text-offWhite">
-              {name}
+              {t(`team.${keyName}.name` as any)}
             </h3>
 
             {/* Punchline */}
             <p className="font-body text-[#ff5c33] italic text-lg px-4">
-              "{punchline}"
+              "{t(`team.${keyName}.punchline` as any)}"
             </p>
 
             {/* Click Hint */}
             <p className="font-body text-gray-500 text-sm mt-4">
-              (Click to read bio)
+              {t('team.clickToRead')}
             </p>
           </div>
         </div>
@@ -79,19 +77,19 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
           <div className="flex flex-col h-full p-6">
             {/* Name on Back */}
             <h3 className="font-heading text-xl font-bold text-offWhite mb-4 text-center">
-              {name}
+              {t(`team.${keyName}.name` as any)}
             </h3>
 
             {/* Bio */}
             <div className="flex-1 overflow-hidden">
               <p className="font-body text-gray-300 text-sm leading-relaxed whitespace-pre-line">
-                {bio}
+                {t(`team.${keyName}.bio` as any)}
               </p>
             </div>
 
             {/* Click Hint */}
             <p className="font-body text-gray-500 text-sm text-center mt-4 italic">
-              (Click anywhere to flip back)
+              {t('team.clickToFlip')}
             </p>
           </div>
         </div>
