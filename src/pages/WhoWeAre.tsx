@@ -8,31 +8,35 @@ import Footer from '../components/Footer';
 import { PunctualityIcon, HumblenessIcon, PassionIcon, GrowthInnovationIcon } from '../components/ServiceIcons';
 import { teamMembers } from '../data/team';
 import { usePageSEO } from '../hooks/usePageSEO';
+import { useLanguage } from '../hooks/useLanguage';
 
-const values = [
+const getValues = (t: (key: string) => string) => [
   {
-    title: "Punctuality & Manners",
-    description: "We're on time with everything we do, we treat everyone with equal respect regardless of their status or title. We're all human.",
+    title: t('values.punctuality.title'),
+    description: t('values.punctuality.description'),
     icon: PunctualityIcon,
   },
   {
-    title: "Humbleness & Honesty",
-    description: "In a capitalistic industry like marketing & sales, we remain humble and honest, building success on trust, not exaggeration.",
+    title: t('values.humbleness.title'),
+    description: t('values.humbleness.description'),
     icon: HumblenessIcon,
   },
   {
-    title: "Passion & Productivity",
-    description: "We are driven by passion for what we do and defined by our ability to get things done.",
+    title: t('values.passion.title'),
+    description: t('values.passion.description'),
     icon: PassionIcon,
   },
   {
-    title: "Growth & Innovation",
-    description: "Stagnation is the first step towards failure. You can't be impactful if you don't grow, you can't drive change without innovating.",
+    title: t('values.growth.title'),
+    description: t('values.growth.description'),
     icon: GrowthInnovationIcon,
   },
 ];
 
 const WhoWeAre: React.FC = () => {
+  const { t } = useLanguage();
+  const values = getValues(t);
+  
   usePageSEO({
     title: 'Who We Are | Omni Solutions',
     description: 'Meet our team of experts dedicated to transforming businesses globally. Learn about our values, mission, and the passionate professionals who make success possible.',
@@ -61,10 +65,10 @@ const WhoWeAre: React.FC = () => {
               fontFamily: 'Cinzel, serif'
             }}
           >
-            Origin Story
+            {t('home.hero.title')}
           </motion.h2>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300 text-center leading-relaxed">
-            Omni Solutions began when two passionate founders set out to make multilingual marketing and global operations accessible to more than just enterprise teams. What started as a hands-on duo evolved into a multidisciplinary studio and partner network focused on practical international growth.
+            {t('home.hero.subtitle')}
           </p>
           <span className="block bg-[#ff5c33] h-1 w-24 mx-auto my-6 rounded-full" />
           </motion.div>
@@ -77,8 +81,8 @@ const WhoWeAre: React.FC = () => {
       <section className="py-8 px-4">
         <div className="max-w-7xl mx-auto">
           <SectionTitle 
-            title="Meet Our Team" 
-            subtitle="The passionate experts behind your growth journey"
+            title={t('home.team.title')} 
+            subtitle={t('home.team.subtitle')}
           />
 
           {/* Row 1: First 5 team members */}

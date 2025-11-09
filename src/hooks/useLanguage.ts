@@ -35,8 +35,20 @@ const translations = {
     'lang.italian': 'Italiano',
     
     // Home Page (WhoWeAre)
-    'home.hero.title': 'Omni Solutions',
-    'home.hero.subtitle': 'Strategic technology partnerships for sustainable growth',
+    'home.hero.title': 'Origin Story',
+    'home.hero.subtitle': 'Omni Solutions began when two passionate founders set out to make multilingual marketing and global operations accessible to more than just enterprise teams. What started as a hands-on duo evolved into a multidisciplinary studio and partner network focused on practical international growth.',
+    'home.team.title': 'Meet Our Team',
+    'home.team.subtitle': 'The passionate experts behind your growth journey',
+    
+    // Values
+    'values.punctuality.title': 'Punctuality & Manners',
+    'values.punctuality.description': 'We\'re on time with everything we do, we treat everyone with equal respect regardless of their status or title. We\'re all human.',
+    'values.humbleness.title': 'Humbleness & Honesty', 
+    'values.humbleness.description': 'In a capitalistic industry like marketing & sales, we remain humble and honest, building success on trust, not exaggeration.',
+    'values.passion.title': 'Passion & Productivity',
+    'values.passion.description': 'We are driven by passion for what we do and defined by our ability to get things done.',
+    'values.growth.title': 'Growth & Innovation',
+    'values.growth.description': 'Stagnation is the first step towards failure. You can\'t be impactful if you don\'t grow, you can\'t drive change without innovating.',
     
     // Tourism Solutions Page
     'tourism.hero.title': 'Tourism Solutions',
@@ -116,8 +128,20 @@ const translations = {
     'lang.italian': 'Italiano',
     
     // Home Page (WhoWeAre)
-    'home.hero.title': 'Omni Solutions',
-    'home.hero.subtitle': 'Partnership tecnologiche strategiche per una crescita sostenibile',
+    'home.hero.title': 'La Nostra Storia',
+    'home.hero.subtitle': 'Omni Solutions è nata quando due fondatori appassionati hanno deciso di rendere il marketing multilingue e le operazioni globali accessibili non solo ai team aziendali. Quello che è iniziato come un duo operativo si è evoluto in uno studio multidisciplinare e una rete di partner focalizzata sulla crescita internazionale pratica.',
+    'home.team.title': 'Incontra il Nostro Team',
+    'home.team.subtitle': 'Gli esperti appassionati dietro il tuo percorso di crescita',
+    
+    // Values
+    'values.punctuality.title': 'Puntualità e Buone Maniere',
+    'values.punctuality.description': 'Siamo puntuali in tutto quello che facciamo, trattiamo tutti con uguale rispetto indipendentemente dal loro status o titolo. Siamo tutti umani.',
+    'values.humbleness.title': 'Umiltà e Onestà',
+    'values.humbleness.description': 'In un\'industria capitalistica come marketing e vendite, rimaniamo umili e onesti, costruendo il successo sulla fiducia, non sull\'esagerazione.',
+    'values.passion.title': 'Passione e Produttività',
+    'values.passion.description': 'Siamo guidati dalla passione per quello che facciamo e definiti dalla nostra capacità di portare a termine le cose.',
+    'values.growth.title': 'Crescita e Innovazione', 
+    'values.growth.description': 'La stagnazione è il primo passo verso il fallimento. Non puoi avere impatto se non cresci, non puoi guidare il cambiamento senza innovare.',
     
     // Tourism Solutions Page
     'tourism.hero.title': 'Soluzioni Turistiche',
