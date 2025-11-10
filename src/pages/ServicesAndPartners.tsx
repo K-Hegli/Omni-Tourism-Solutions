@@ -8,54 +8,113 @@ import SolutionCard from "../components/SolutionCard";
 import SectionTitle from "../components/SectionTitle";
 import Footer from "../components/Footer";
 import { usePageSEO } from "../hooks/useFavicon";
+import { useLanguage } from "../hooks/useLanguage";
 import { coreServices } from "../data/services";
 import { softwareSolutions } from "../data/partners";
 import { ServicesHeaderIcon, PackagesHeaderIcon, PartnersHeaderIcon } from "../components/ServiceIcons";
 
-const packages = [
-  {
-    id: 'mini',
-    title: 'Omni Mini',
-    price: '€3,500',
-    monthly: '1 month total',
-    hint: 'Perfect for startups validating their business model',
-    description: `
-      A one-month strategic sprint to clarify your business model, research your target market, and co-create a strategy deck.
-      Includes 2 workshops, a positioning audit, and a tailored implementation roadmap.
-    `,
-  },
-  {
-    id: 'alpha',
-    title: 'Omni Alpha',
-    price: '€10,800',
-    monthly: '€1,800/mo (6 months)',
-    hint: 'Ideal for growing teams needing ongoing strategic support',
-    description: `
-      A 6-month coaching retainer with monthly workshops, strategic reviews, and implementation guidance.
-      Includes brand refinement, channel strategy, and performance tracking.
-    `,
-  },
-  {
-    id: 'omega',
-    title: 'Omni Omega',
-    price: '€15,900',
-    monthly: '€1,325/mo (12 months)',
-    hint: 'Full-suite strategic partnership for scaling businesses',
-    description: `
-      A 12-month executive-level engagement with deep strategic coaching, team enablement, and growth execution.
-      Includes quarterly strategy decks, stakeholder workshops, and full implementation support.
-    `,
-  },
-];
 
 export default function ServicesAndPartners() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   
   // Set page-specific SEO
   usePageSEO({
     title: 'Business Solutions - Omni Solutions',
     description: 'Comprehensive digital solutions and infrastructure to scale your business globally. Web development, SEO, social media, and more.',
   });
+
+  // Dynamic packages using translations
+  const packages = [
+    {
+      id: 'mini',
+      title: t('services.packages.mini.title'),
+      price: t('services.packages.mini.price'),
+      monthly: t('services.packages.mini.monthly'),
+      hint: t('services.packages.mini.hint'),
+      description: t('services.packages.mini.description'),
+    },
+    {
+      id: 'alpha',
+      title: t('services.packages.alpha.title'),
+      price: t('services.packages.alpha.price'),
+      monthly: t('services.packages.alpha.monthly'),
+      hint: t('services.packages.alpha.hint'),
+      description: t('services.packages.alpha.description'),
+    },
+    {
+      id: 'omega',
+      title: t('services.packages.omega.title'),
+      price: t('services.packages.omega.price'),
+      monthly: t('services.packages.omega.monthly'),
+      hint: t('services.packages.omega.hint'),
+      description: t('services.packages.omega.description'),
+    },
+  ];
+
+  // Dynamic services using translations
+  const translatedServices = [
+    {
+      title: t('services.data.webdev.title'),
+      icon: "WebDevIcon",
+      description: t('services.data.webdev.description'),
+      tiers: [
+        {
+          name: t('services.data.webdev.landing.name'),
+          description: t('services.data.webdev.landing.description'),
+          price: t('services.data.webdev.landing.price')
+        },
+        {
+          name: t('services.data.webdev.business.name'),
+          description: t('services.data.webdev.business.description'),
+          price: t('services.data.webdev.business.price')
+        },
+        {
+          name: t('services.data.webdev.ecommerce.name'),
+          description: t('services.data.webdev.ecommerce.description'),
+          price: t('services.data.webdev.ecommerce.price')
+        }
+      ]
+    },
+    {
+      title: t('services.data.seo.title'),
+      icon: "SEOIcon", 
+      description: t('services.data.seo.description'),
+      tiers: [
+        {
+          name: t('services.data.seo.local.name'),
+          description: t('services.data.seo.local.description'),
+          price: t('services.data.seo.local.price')
+        },
+        {
+          name: t('services.data.seo.national.name'),
+          description: t('services.data.seo.national.description'),
+          price: t('services.data.seo.national.price')
+        },
+        {
+          name: t('services.data.seo.enterprise.name'),
+          description: t('services.data.seo.enterprise.description'),
+          price: t('services.data.seo.enterprise.price')
+        }
+      ]
+    }
+  ];
+
+  // Dynamic software solutions using translations
+  const translatedSoftware = [
+    {
+      name: t('services.software.fullstack.name'),
+      icon: "FullStackDevIcon",
+      desc: t('services.software.fullstack.desc'),
+      details: t('services.software.fullstack.details')
+    },
+    {
+      name: t('services.software.blockchain.name'),
+      icon: "BlockchainIcon",
+      desc: t('services.software.blockchain.desc'),
+      details: t('services.software.blockchain.details')
+    }
+  ];
   return (
     <>
       {/* Hero Section */}
@@ -77,7 +136,7 @@ export default function ServicesAndPartners() {
                 fontFamily: 'Cinzel, serif'
               }}
             >
-              Business Solutions
+              {t('services.hero.title')}
             </motion.h1>
             <span className="block bg-[#ff5c33] h-1 w-24 mx-auto my-6 rounded-full" />
             <p className="text-xl md:text-2xl text-gray-200 mb-2 max-w-4xl mx-auto font-medium leading-relaxed tracking-wide"
@@ -85,7 +144,7 @@ export default function ServicesAndPartners() {
                  textShadow: '0 0 20px rgba(255, 255, 255, 0.1)',
                  fontFamily: 'Inter, sans-serif'
                }}>
-              Comprehensive digital solutions and infrastructure to scale your business globally with proven strategies and cutting-edge technology.
+              {t('services.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -96,20 +155,20 @@ export default function ServicesAndPartners() {
         {/* Marketing Solutions with Accordions */}
         <section id="core-services" className="section">
           <SectionTitle 
-            title="Marketing Solutions" 
+            title={t('services.marketing.title')} 
             icon={ServicesHeaderIcon}
           />
           
           {/* Services Introduction */}
           <div className="max-w-3xl mx-auto text-center mb-8">
             <p className="font-body text-gray-400 text-lg leading-relaxed">
-              Start with our base package for each service, then choose upgrades as needed. 
-              <span className="text-[#ff5c33] font-medium"> Upgrade pricing is customized after a discovery call</span> to match your specific requirements perfectly.
+              {t('services.marketing.intro')}
+              <span className="text-[#ff5c33] font-medium"> {t('services.marketing.customPricing')}</span> {t('services.marketing.perfectMatch')}
             </p>
           </div>
           
           <div className="max-w-4xl mx-auto">
-            {coreServices.map((svc, i) => (
+            {translatedServices.map((svc, i) => (
               <ServiceAccordion key={i} {...svc} />
             ))}
           </div>
@@ -118,14 +177,14 @@ export default function ServicesAndPartners() {
         {/* Software Solutions */}
         <section className="mt-24">
           <SectionTitle 
-            title="Software Solutions" 
+            title={t('services.software.title')} 
             icon={PartnersHeaderIcon}
           />
           
           {/* Software Solutions Introduction */}
           <div className="max-w-3xl mx-auto text-center mb-8">
             <p className="font-body text-gray-400 text-lg leading-relaxed">
-              Platform and software offerings for enterprise-level digital transformation and scalable solutions.
+              {t('services.software.intro')}
             </p>
           </div>
           
@@ -141,7 +200,7 @@ export default function ServicesAndPartners() {
 
 
           <SectionTitle 
-            title="Strategy Packages" 
+            title={t('services.packages.title')} 
             icon={PackagesHeaderIcon}
           />
           
