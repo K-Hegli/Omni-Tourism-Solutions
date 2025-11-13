@@ -97,6 +97,50 @@ export default function ServicesAndPartners() {
           price: t('services.data.seo.enterprise.price')
         }
       ]
+    },
+    {
+      title: t('services.data.social.title'),
+      icon: "SocialMediaIcon",
+      description: t('services.data.social.description'),
+      tiers: [
+        {
+          name: t('services.data.social.setup.name'),
+          description: t('services.data.social.setup.description'),
+          price: t('services.data.social.setup.price')
+        },
+        {
+          name: t('services.data.social.content.name'),
+          description: t('services.data.social.content.description'),
+          price: t('services.data.social.content.price')
+        },
+        {
+          name: t('services.data.social.ads.name'),
+          description: t('services.data.social.ads.description'),
+          price: t('services.data.social.ads.price')
+        }
+      ]
+    },
+    {
+      title: t('services.data.photo.title'),
+      icon: "PhotoVideoIcon",
+      description: t('services.data.photo.description'),
+      tiers: [
+        {
+          name: t('services.data.photo.product.name'),
+          description: t('services.data.photo.product.description'),
+          price: t('services.data.photo.product.price')
+        },
+        {
+          name: t('services.data.photo.brand.name'),
+          description: t('services.data.photo.brand.description'),
+          price: t('services.data.photo.brand.price')
+        },
+        {
+          name: t('services.data.photo.package.name'),
+          description: t('services.data.photo.package.description'),
+          price: t('services.data.photo.package.price')
+        }
+      ]
     }
   ];
 
@@ -189,7 +233,7 @@ export default function ServicesAndPartners() {
           </div>
           
           <div className="grid-2">
-            {softwareSolutions.map((solution, i) => (
+            {translatedSoftware.map((solution, i) => (
               <PartnerFlipCard key={i} {...solution} />
             ))}
           </div>
