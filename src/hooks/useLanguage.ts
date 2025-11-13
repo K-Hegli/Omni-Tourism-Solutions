@@ -304,7 +304,7 @@ const translations = {
     // Cube Cards
     'cube.explore.title': 'Esplora Questo Modulo',
     'cube.explore.outcomes': 'Benefici e risultati chiave',
-    'cube.explore.roi': 'Panoramica impatto finanziario',
+    'cube.explore.roi': 'Impatto finanziario',
     'cube.explore.pilot': 'Roadmap implementazione',
     'cube.explore.cta': 'Clicca per ruotare ed esplorare →',
     'cube.overview.title': 'Panoramica Soluzione',
@@ -312,8 +312,8 @@ const translations = {
     'cube.overview.timeline': 'Tempistiche',
     'cube.overview.support': 'Supporto',
     'cube.overview.focusValue': 'Operazioni turistiche',
-    'cube.overview.timelineValue': 'Implementazione in 2-6 settimane',
-    'cube.overview.supportValue': 'Setup completo e formazione inclusi',
+    'cube.overview.timelineValue': 'Implementazione 2-6 sett.',
+    'cube.overview.supportValue': 'Setup e formazione inclusi',
     'cube.outcomes.title': 'Risultati',
     'cube.outcomes.subtitle': 'Benefici e risultati chiave',
     'cube.outcomes.sectionTitle': 'Benefici Principali',
@@ -331,10 +331,10 @@ const translations = {
     'cube.pilot.setup': 'Setup',
     'cube.pilot.training': 'Formazione',
     'cube.pilot.support': 'Supporto',
-    'cube.pilot.setupValue': 'Configurazione in 2 settimane',
-    'cube.pilot.trainingValue': 'Onboarding del personale incluso',
-    'cube.pilot.supportValue': 'Assistenza per 30 giorni',
-    'cube.pilot.ready': 'Pronto per iniziare in 2 settimane',
+    'cube.pilot.setupValue': 'Configurazione in 2 sett.',
+    'cube.pilot.trainingValue': 'Onboarding incluso',
+    'cube.pilot.supportValue': 'Assistenza 30 giorni',
+    'cube.pilot.ready': 'Pronto in 2 settimane',
     
     // Services & Partners Page
     'services.hero.title': 'Soluzioni Business',
@@ -421,13 +421,13 @@ const translations = {
     
     // Module Specific Content
     'module.dccNetworks.title': 'DCC Networks',
-    'module.dccNetworks.oneLiner': 'Una piattaforma per gestire tutti i tuoi tour, prenotazioni e team senza sforzo.',
+    'module.dccNetworks.oneLiner': 'Gestisci tour, prenotazioni e team in una piattaforma.',
     'module.dccNetworks.category': 'Software per Tour Operator',
     'module.spottyWifi.title': 'Spotty Wi‑Fi',
-    'module.spottyWifi.oneLiner': 'Trasforma il Wi‑Fi degli ospiti in marketing, recensioni e dati clienti.',
+    'module.spottyWifi.oneLiner': 'Wi‑Fi ospiti diventa marketing e dati clienti.',
     'module.spottyWifi.category': 'Suite Wi‑Fi Ospiti & Marketing',
     'module.welcomeDog.title': 'Welcome Dog System',
-    'module.welcomeDog.oneLiner': 'Semplifica prenotazioni pet, servizi e comunicazione ospiti per viaggiatori con animali.',
+    'module.welcomeDog.oneLiner': 'Servizi pet completi per ospiti con animali.',
     'module.welcomeDog.category': 'Servizi Ospiti Pet-Friendly',
   },
 };
