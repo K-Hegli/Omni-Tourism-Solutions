@@ -7,8 +7,11 @@ import ReportCover from "../components/ReportCover";
 import TableOfContents from "../components/TableOfContents";
 import Footer from "../components/Footer";
 import { usePageSEO } from "../hooks/useFavicon";
+import { useLanguage } from "../hooks/useLanguage";
 
 const AboutYou: React.FC = () => {
+  const { t } = useLanguage();
+  
   // Set page-specific SEO
   usePageSEO({
     title: 'Business Assessment - Omni Solutions',
@@ -35,7 +38,7 @@ const AboutYou: React.FC = () => {
                 fontFamily: 'Cinzel, serif'
               }}
             >
-              Business Assessment
+              {t('aboutYou.hero.title')}
             </motion.h1>
             <span className="block bg-[#ff5c33] h-1 w-24 mx-auto my-6 rounded-full" />
             <p className="text-xl md:text-2xl text-gray-200 mb-2 max-w-4xl mx-auto font-medium leading-relaxed tracking-wide"
@@ -43,7 +46,7 @@ const AboutYou: React.FC = () => {
                  textShadow: '0 0 20px rgba(255, 255, 255, 0.1)',
                  fontFamily: 'Inter, sans-serif'
                }}>
-              Complete your strategic analysis to unlock growth opportunities and operational excellence.
+              {t('aboutYou.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -65,71 +68,69 @@ const AboutYou: React.FC = () => {
           <TableOfContents />
 
           <ReportSection
-            title="Executive Summary"
-            subtitle="Key insights and strategic priorities"
+            title={t('aboutYou.executive.title')}
+            subtitle={t('aboutYou.executive.subtitle')}
             startOnNewPage={true}
           >
             <p className="text-gray-300 mb-4">
-              This comprehensive business assessment provides strategic insights into your organization's
-              current position, capabilities, and growth opportunities. The analysis covers SWOT factors,
-              operational capabilities, and actionable recommendations for sustainable growth.
+              {t('aboutYou.executive.description')}
             </p>
             <div className="bg-gray-800/50 p-4 rounded-lg">
-              <h4 className="font-semibold text-offWhite mb-2">Priority Actions:</h4>
+              <h4 className="font-semibold text-offWhite mb-2">{t('aboutYou.executive.priorityTitle')}</h4>
               <ul className="list-disc list-inside space-y-1 text-gray-300">
-                <li>Address high-priority SWOT items identified in the analysis</li>
-                <li>Focus on capability gaps in critical operational areas</li>
-                <li>Develop implementation roadmap for recommended improvements</li>
+                <li>{t('aboutYou.executive.priority1')}</li>
+                <li>{t('aboutYou.executive.priority2')}</li>
+                <li>{t('aboutYou.executive.priority3')}</li>
               </ul>
             </div>
           </ReportSection>
 
           <ReportSection
-            title="SWOT Analysis"
-            subtitle="Strategic assessment of Strengths, Weaknesses, Opportunities, and Threats"
+            title={t('aboutYou.swot.title')}
+            subtitle={t('aboutYou.swot.subtitle')}
             startOnNewPage={true}
           >
             <SwotAnalysis />
           </ReportSection>
 
           <ReportSection
-            title="Business Capabilities"
-            subtitle="Operational assessment and capability evaluation"
+            title={t('aboutYou.capabilities.title')}
+            subtitle={t('aboutYou.capabilities.subtitle')}
             startOnNewPage={true}
           >
             <BusinessCapabilities />
           </ReportSection>
 
           <ReportSection
-            title="Strategic Recommendations"
-            subtitle="Actionable insights for business growth"
+            title={t('aboutYou.recommendations.title')}
+            subtitle={t('aboutYou.recommendations.subtitle')}
             startOnNewPage={true}
           >
             <div className="space-y-6">
               <div className="bg-gray-800/30 p-6 rounded-lg">
-                <h4 className="font-semibold text-offWhite mb-3">Immediate Actions (Next 30 Days)</h4>
+                <h4 className="font-semibold text-offWhite mb-3">{t('aboutYou.recommendations.immediate.title')}</h4>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  <li>Review and prioritize high-impact SWOT items</li>
-                  <li>Conduct stakeholder interviews for deeper insights</li>
-                  <li>Begin capability gap analysis for critical functions</li>
+                  <li>{t('aboutYou.recommendations.immediate.item1')}</li>
+                  <li>{t('aboutYou.recommendations.immediate.item2')}</li>
+                  <li>{t('aboutYou.recommendations.immediate.item3')}</li>
                 </ul>
               </div>
 
               <div className="bg-gray-800/30 p-6 rounded-lg">
-                <h4 className="font-semibold text-offWhite mb-3">Short-term Goals (3-6 Months)</h4>
+                <h4 className="font-semibold text-offWhite mb-3">{t('aboutYou.recommendations.shortTerm.title')}</h4>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  <li>Implement recommended operational improvements</li>
-                  <li>Develop training programs for capability enhancement</li>
-                  <li>Establish monitoring systems for key performance indicators</li>
+                  <li>{t('aboutYou.recommendations.shortTerm.item1')}</li>
+                  <li>{t('aboutYou.recommendations.shortTerm.item2')}</li>
+                  <li>{t('aboutYou.recommendations.shortTerm.item3')}</li>
                 </ul>
               </div>
 
               <div className="bg-gray-800/30 p-6 rounded-lg">
-                <h4 className="font-semibold text-offWhite mb-3">Long-term Vision (6-12 Months)</h4>
+                <h4 className="font-semibold text-offWhite mb-3">{t('aboutYou.recommendations.longTerm.title')}</h4>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  <li>Achieve operational excellence across all assessed areas</li>
-                  <li>Establish competitive advantages in key market segments</li>
-                  <li>Build scalable systems for sustained growth</li>
+                  <li>{t('aboutYou.recommendations.longTerm.item1')}</li>
+                  <li>{t('aboutYou.recommendations.longTerm.item2')}</li>
+                  <li>{t('aboutYou.recommendations.longTerm.item3')}</li>
                 </ul>
               </div>
             </div>
@@ -147,7 +148,7 @@ const AboutYou: React.FC = () => {
             onClick={() => window.print()}
             className="px-8 py-4 bg-gradient-to-r from-[#ff5c33] to-[#ff2a5f] text-white font-heading font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff5c33]/50 transition-all duration-300"
           >
-            📄 Print Business Report
+            📄 {t('aboutYou.printButton')}
           </button>
         </motion.div>
         </div>
